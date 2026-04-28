@@ -238,6 +238,35 @@ em, .it { font-style: italic; font-family: var(--serif); }
   position: relative;
   overflow: hidden;
 }
+.hero-media {
+  margin-top: 64px;
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  aspect-ratio: 21 / 9;
+  background-color: var(--sand);
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+.hero-media::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(31,28,23,0) 55%, rgba(31,28,23,0.4) 100%);
+}
+.hero-media .caption {
+  position: absolute;
+  left: 28px; bottom: 24px;
+  color: var(--paper);
+  z-index: 2;
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+@media (max-width: 720px) {
+  .hero-media { aspect-ratio: 4 / 3; margin-top: 40px; }
+}
 .hero .eyebrow { margin-bottom: 24px; color: var(--olive); }
 .hero h1 {
   font-family: var(--serif);
@@ -329,13 +358,16 @@ em, .it { font-style: italic; font-family: var(--serif); }
 .prop-card .media {
   position: relative;
   aspect-ratio: 4 / 5;
-  background: var(--leaf);
-  background-image:
-    repeating-linear-gradient(
-      45deg,
-      rgba(255,255,255,0.06) 0 12px,
-      transparent 12px 24px
-    );
+  background-color: var(--leaf);
+  background-size: cover;
+  background-position: center;
+}
+.prop-card .media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(31,28,23,0) 50%, rgba(31,28,23,0.55) 100%);
+  pointer-events: none;
 }
 .prop-card.tone-leaf  .media { background-color: var(--leaf); }
 .prop-card.tone-sand  .media { background-color: #D9D0BE; }
@@ -348,6 +380,7 @@ em, .it { font-style: italic; font-family: var(--serif); }
   position: absolute;
   top: 16px;
   left: 16px;
+  z-index: 2;
   font-family: var(--sans);
   font-size: 10px;
   font-weight: 600;
@@ -446,8 +479,16 @@ em, .it { font-style: italic; font-family: var(--serif); }
 .area-card .media {
   aspect-ratio: 5 / 4;
   background-color: var(--leaf);
-  background-image: repeating-linear-gradient(45deg, rgba(255,255,255,0.06) 0 12px, transparent 12px 24px);
+  background-size: cover;
+  background-position: center;
   position: relative;
+}
+.area-card .media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(31,28,23,0) 55%, rgba(31,28,23,0.5) 100%);
+  pointer-events: none;
 }
 .area-card.tone-leaf  .media { background-color: var(--leaf); }
 .area-card.tone-sand  .media { background-color: #D9D0BE; }
@@ -456,6 +497,7 @@ em, .it { font-style: italic; font-family: var(--serif); }
 .area-card .media .label {
   position: absolute;
   bottom: 14px; left: 14px;
+  z-index: 2;
   font-family: var(--sans);
   font-size: 10px;
   font-weight: 600;
