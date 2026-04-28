@@ -298,7 +298,7 @@ em, .it { font-style: italic; font-family: var(--serif); }
   grid-template-columns: 1fr 1fr 1fr auto;
   gap: 0;
   align-items: center;
-  max-width: 760px;
+  width: 100%;
   border: 1px solid var(--line);
 }
 .inline-search .field {
@@ -347,10 +347,11 @@ em, .it { font-style: italic; font-family: var(--serif); }
 
 .prop-card {
   position: relative;
-  display: block;
+  display: flex;
+  flex-direction: column;
   border-radius: var(--r-lg);
   overflow: hidden;
-  background: var(--sand);
+  background: var(--paper);
   cursor: pointer;
   transition: transform .25s ease;
 }
@@ -443,8 +444,10 @@ em, .it { font-style: italic; font-family: var(--serif); }
 .prop-card .meta {
   padding: 22px 24px 26px;
   background: var(--paper);
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: 4px;
+  flex: 1;
 }
 .prop-card .meta .title {
   font-family: var(--serif);

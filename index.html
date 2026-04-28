@@ -175,17 +175,11 @@
       <a href="properties.html" class="btn btn-ghost">See all properties <span class="arrow">→</span></a>
     </div>
 
-    <div class="shortlist-bar">
-      <span class="label">Shortlist — <strong id="sl-count">0 selected</strong></span>
-      <button class="req" id="sl-btn" disabled>Request viewings ↗</button>
-    </div>
-
     <div class="cards-grid">
       <article class="prop-card tone-leaf">
         <div class="media" style="background-image: url('https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=900&q=80');">
           <span class="badge">Long-let</span>
-          <button class="add-btn" aria-label="Add to shortlist" data-shortlist>+</button>
-          <span class="caption"><span class="type">Pool villa · tropical modern</span></span>
+<span class="caption"><span class="type">Pool villa · tropical modern</span></span>
           <span class="arrow-btn"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H4M11 3v7" stroke="#1F1C17" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         </div>
         <div class="meta">
@@ -198,8 +192,7 @@
       <article class="prop-card tone-sand">
         <div class="media" style="background-image: url('https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&w=900&q=80');">
           <span class="badge">Long-let</span>
-          <button class="add-btn" aria-label="Add to shortlist" data-shortlist>+</button>
-          <span class="caption"><span class="type">Family home · garden + shaded terrace</span></span>
+<span class="caption"><span class="type">Family home · garden + shaded terrace</span></span>
           <span class="arrow-btn"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H4M11 3v7" stroke="#1F1C17" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         </div>
         <div class="meta">
@@ -212,8 +205,7 @@
       <article class="prop-card tone-brown">
         <div class="media" style="background-image: url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=900&q=80');">
           <span class="badge">For sale</span>
-          <button class="add-btn" aria-label="Add to shortlist" data-shortlist>+</button>
-          <span class="caption"><span class="type">Boutique villa · pool + pavilion</span></span>
+<span class="caption"><span class="type">Boutique villa · pool + pavilion</span></span>
           <span class="arrow-btn"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H4M11 3v7" stroke="#1F1C17" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         </div>
         <div class="meta">
@@ -304,7 +296,7 @@
 <section class="cta-block">
   <div class="wrap">
     <span class="eyebrow">Ready when you are</span>
-    <h2>Relocating is a life decision — not a property transaction.</h2>
+    <h2>Relocating is a <em>life</em> decision — not a <em>property</em> transaction.</h2>
     <p class="sub">Start with a conversation, not a search. Tell Annie how you want to live, and she'll point you in the right direction.</p>
     <div class="cta-row">
       <a href="contact.html" class="btn btn-on-dark">Book a call <span class="arrow">↗</span></a>
@@ -354,24 +346,6 @@
     </div>
   </div>
 </footer>
-
-<script>
-  // Shortlist counter
-  let count = 0;
-  const slCount = document.getElementById('sl-count');
-  const slBtn = document.getElementById('sl-btn');
-  document.querySelectorAll('[data-shortlist]').forEach(btn => {
-    btn.addEventListener('click', e => {
-      e.preventDefault();
-      e.stopPropagation();
-      const added = btn.classList.toggle('added');
-      btn.textContent = added ? '✓' : '+';
-      count += added ? 1 : -1;
-      slCount.textContent = count + (count === 1 ? ' selected' : ' selected');
-      slBtn.disabled = count === 0;
-    });
-  });
-</script>
 
 </body>
 </html>
