@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phuket Living — Website Mockup</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --green-dark: #085041;
+    --green-mid: #1D9E75;
+    --green-light: #E1F5EE;
+    --green-border: #5DCAA5;
+    --green-text: #0F6E56;
+    --amber: #BA7517;
+    --amber-light: #FAEEDA;
+    --amber-border: #EF9F27;
+    --amber-text: #633806;
+    --surface: #F5F5F3;
+    --surface2: #EFEFEC;
+    --border: rgba(0,0,0,0.12);
+    --border2: rgba(0,0,0,0.22);
+    --text1: #222222;
+    --text2: #555555;
+    --text3: #888888;
+    --white: #ffffff;
+    --radius-sm: 6px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-pill: 20px;
+    --serif: Georgia, 'Times New Roman', serif;
+    --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+  body { font-family: var(--sans); font-size: 14px; color: var(--text1); background: var(--surface); line-height: 1.6; }
+  a { text-decoration: none; }
+
+  /* NAV */
+  .site-nav { background: var(--white); border-bottom: 0.5px solid var(--border); padding: 14px 32px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
+  .site-nav .logo { font-family: var(--serif); font-size: 16px; font-weight: 500; color: var(--text1); }
+  .site-nav .nav-links { display: flex; gap: 24px; }
+  .site-nav .nav-links a { font-size: 13px; color: var(--text2); cursor: pointer; transition: color .15s; }
+  .site-nav .nav-links a:hover { color: var(--text1); }
+  .site-nav .nav-cta { font-size: 13px; font-weight: 500; padding: 7px 16px; border-radius: var(--radius-md); background: var(--green-mid); color: var(--white); border: none; cursor: pointer; }
+
+  /* PAGE TABS */
+  .page-tabs { background: var(--white); border-bottom: 0.5px solid var(--border); padding: 0 32px; display: flex; gap: 0; overflow-x: auto; }
+  .page-tab { font-size: 13px; padding: 12px 18px; color: var(--text3); cursor: pointer; border-bottom: 2px solid transparent; white-space: nowrap; transition: all .15s; background: none; border-top: none; border-left: none; border-right: none; }
+  .page-tab:hover { color: var(--text1); }
+  .page-tab.active { color: var(--green-dark); border-bottom-color: var(--green-mid); font-weight: 500; }
+
+  /* PAGES */
+  .page { display: none; }
+  .page.active { display: block; }
+
+  /* HERO */
+  .hero { background: var(--surface2); padding: 64px 32px 56px; border-bottom: 0.5px solid var(--border); text-align: center; }
+  .hero .eyebrow { font-size: 11px; font-weight: 500; color: var(--green-text); letter-spacing: .08em; text-transform: lowercase; margin-bottom: 12px; }
+  .hero h1 { font-family: var(--serif); font-size: 36px; font-weight: 400; line-height: 1.25; color: var(--text1); margin-bottom: 16px; }
+  .hero h1 em { color: var(--green-text); font-style: italic; }
+  .hero .sub { font-size: 15px; color: var(--text2); max-width: 480px; margin: 0 auto 28px; line-height: 1.65; }
+  .hero-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .btn-primary { font-size: 13px; font-weight: 500; padding: 10px 22px; border-radius: var(--radius-md); background: var(--green-mid); color: var(--white); border: none; cursor: pointer; }
+  .btn-secondary { font-size: 13px; padding: 10px 22px; border-radius: var(--radius-md); background: var(--white); color: var(--text1); border: 0.5px solid var(--border2); cursor: pointer; }
+
+  /* SECTIONS */
+  .section { padding: 48px 32px; border-bottom: 0.5px solid var(--border); background: var(--white); }
+  .section.tinted { background: var(--surface); }
+  .section-label { font-size: 11px; font-weight: 500; color: var(--text3); letter-spacing: .08em; text-transform: lowercase; margin-bottom: 6px; }
+  .section h2 { font-family: var(--serif); font-size: 24px; font-weight: 400; line-height: 1.3; margin-bottom: 8px; }
+  .section h2 em { color: var(--green-text); font-style: italic; }
+  .section .sec-sub { font-size: 13px; color: var(--text2); margin-bottom: 28px; line-height: 1.6; }
+
+  /* CARDS GRID */
+  .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
+  .card { background: var(--white); border: 0.5px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; transition: border-color .15s; cursor: pointer; }
+  .card:hover { border-color: var(--border2); }
+  .card-img { height: 120px; background: var(--surface2); display: flex; align-items: center; justify-content: center; position: relative; }
+  .card-img svg { opacity: .15; }
+  .area-badge { position: absolute; top: 8px; left: 8px; font-size: 11px; font-weight: 500; padding: 3px 9px; border-radius: var(--radius-pill); }
+  .add-btn { position: absolute; top: 8px; right: 8px; width: 28px; height: 28px; border-radius: 50%; background: var(--white); border: 0.5px solid var(--border2); font-size: 14px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background .15s; }
+  .add-btn.added { background: var(--amber-light); border-color: var(--amber); }
+  .card-body { padding: 14px 16px; }
+  .card-title { font-size: 14px; font-weight: 500; margin-bottom: 4px; }
+  .card-meta { font-size: 12px; color: var(--text2); margin-bottom: 4px; }
+  .card-desc { font-size: 12px; color: var(--text2); line-height: 1.5; margin-bottom: 10px; }
+  .card-price { font-size: 14px; font-weight: 500; margin-bottom: 10px; }
+  .card-tags { display: flex; gap: 5px; flex-wrap: wrap; }
+  .tag { font-size: 11px; padding: 2px 8px; border-radius: var(--radius-pill); background: var(--surface); border: 0.5px solid var(--border); color: var(--text2); }
+  .card-cta { padding: 10px 16px; border-top: 0.5px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+  .card-link { font-size: 12px; color: var(--green-text); cursor: pointer; background: none; border: none; }
+  .card-count { font-size: 11px; color: var(--text3); }
+
+  /* AREA FACTS */
+  .area-facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; border-top: 0.5px solid var(--border); padding: 12px 16px; }
+  .fact-val { font-size: 13px; font-weight: 500; color: var(--text1); }
+  .fact-key { font-size: 11px; color: var(--text3); }
+
+  /* SHORTLIST BAR */
+  .shortlist-bar { background: var(--surface); border: 0.5px solid var(--border2); border-radius: var(--radius-md); padding: 11px 16px; display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
+  .shortlist-bar span { font-size: 13px; color: var(--text2); }
+  .shortlist-bar strong { color: var(--text1); }
+  .req-btn { font-size: 13px; font-weight: 500; padding: 8px 18px; border-radius: var(--radius-md); background: var(--green-mid); color: var(--white); border: none; cursor: pointer; }
+  .req-btn:disabled { background: var(--surface); color: var(--text3); border: 0.5px solid var(--border); cursor: default; }
+
+  /* STEPS */
+  .steps { display: flex; flex-direction: column; gap: 20px; }
+  .step { display: flex; gap: 16px; align-items: flex-start; }
+  .step-num { width: 32px; height: 32px; border-radius: 50%; background: var(--green-light); color: var(--green-dark); font-size: 13px; font-weight: 500; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+  .step-title { font-size: 14px; font-weight: 500; margin-bottom: 3px; }
+  .step-desc { font-size: 13px; color: var(--text2); line-height: 1.5; }
+
+  /* TRUST STATS */
+  .trust-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 24px; }
+  .trust-stat { background: var(--surface); border-radius: var(--radius-md); padding: 16px; text-align: center; }
+  .trust-num { font-size: 22px; font-weight: 500; margin-bottom: 3px; }
+  .trust-label { font-size: 12px; color: var(--text2); }
+
+  /* QUOTE */
+  .quote-card { background: var(--surface); border-radius: var(--radius-lg); padding: 20px 24px; margin-bottom: 12px; }
+  .quote-text { font-family: var(--serif); font-style: italic; font-size: 14px; line-height: 1.65; margin-bottom: 10px; }
+  .quote-attr { font-size: 12px; color: var(--text3); }
+
+  /* FOOTER CTA */
+  .footer-cta { background: var(--green-dark); padding: 56px 32px; text-align: center; }
+  .footer-cta h2 { font-family: var(--serif); font-style: italic; font-size: 24px; font-weight: 400; color: var(--green-light); margin-bottom: 8px; }
+  .footer-cta p { font-size: 13px; color: #9FE1CB; margin-bottom: 24px; line-height: 1.6; }
+  .footer-cta .btn-light { font-size: 13px; font-weight: 500; padding: 11px 26px; border-radius: var(--radius-md); background: var(--green-light); color: var(--green-dark); border: none; cursor: pointer; margin: 0 6px 8px; }
+  .footer-cta .btn-ghost { font-size: 13px; padding: 11px 26px; border-radius: var(--radius-md); background: transparent; color: #9FE1CB; border: 0.5px solid var(--green-text); cursor: pointer; margin: 0 6px 8px; }
+
+  /* ABOUT */
+  .about-hero { padding: 48px 32px; border-bottom: 0.5px solid var(--border); display: grid; grid-template-columns: 1fr 140px; gap: 40px; align-items: start; }
+  .avatar { width: 100px; height: 100px; border-radius: 50%; background: var(--green-light); border: 0.5px solid var(--green-border); display: flex; align-items: center; justify-content: center; }
+  .avatar-init { font-family: var(--serif); font-size: 32px; font-weight: 400; color: var(--green-dark); }
+  .sig { font-family: var(--serif); font-style: italic; font-size: 15px; font-weight: 500; margin-bottom: 2px; }
+  .sig-role { font-size: 12px; color: var(--text3); }
+  .pull-quote { font-family: var(--serif); font-style: italic; font-size: 16px; color: var(--text1); border-left: 2px solid var(--green-mid); padding-left: 18px; margin: 24px 0; line-height: 1.55; }
+  .belief-card { background: var(--surface); border-radius: var(--radius-lg); padding: 18px 20px; margin-bottom: 10px; display: flex; gap: 14px; align-items: flex-start; }
+  .belief-num { width: 28px; height: 28px; border-radius: 50%; background: var(--green-light); color: var(--green-dark); font-size: 12px; font-weight: 500; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .belief-title { font-size: 14px; font-weight: 500; margin-bottom: 4px; }
+  .belief-desc { font-size: 13px; color: var(--text2); line-height: 1.5; }
+  .green-box { background: var(--green-light); border-radius: var(--radius-lg); padding: 18px 22px; }
+  .green-box .gb-label { font-size: 11px; font-weight: 500; color: var(--green-text); letter-spacing: .06em; text-transform: lowercase; margin-bottom: 4px; }
+  .green-box .gb-text { font-family: var(--serif); font-style: italic; font-size: 17px; color: var(--green-dark); }
+  .diff-row { display: flex; gap: 14px; align-items: flex-start; margin-bottom: 16px; }
+  .diff-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green-mid); flex-shrink: 0; margin-top: 5px; }
+  .diff-text { font-size: 13px; color: var(--text2); line-height: 1.55; }
+
+  /* RESOURCES */
+  .filter-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 24px; }
+  .fpill { font-size: 12px; padding: 6px 14px; border-radius: var(--radius-pill); border: 0.5px solid var(--border2); background: var(--white); color: var(--text2); cursor: pointer; transition: all .15s; }
+  .fpill.active { background: var(--green-light); border-color: var(--green-text); color: var(--green-dark); font-weight: 500; }
+  .guide-card { background: var(--white); border: 0.5px solid var(--border); border-radius: var(--radius-lg); padding: 18px 20px; display: flex; gap: 14px; align-items: flex-start; margin-bottom: 10px; cursor: pointer; transition: border-color .15s; }
+  .guide-card:hover { border-color: var(--border2); }
+  .guide-card.featured { border: 2px solid var(--green-mid); }
+  .guide-icon { width: 36px; height: 36px; border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .guide-cat { font-size: 11px; font-weight: 500; text-transform: lowercase; letter-spacing: .05em; margin-bottom: 3px; color: var(--green-text); }
+  .guide-title { font-size: 14px; font-weight: 500; margin-bottom: 4px; line-height: 1.3; }
+  .guide-desc { font-size: 12px; color: var(--text2); line-height: 1.5; margin-bottom: 6px; }
+  .guide-meta { font-size: 11px; color: var(--text3); }
+  .featured-badge { font-size: 11px; background: var(--green-light); color: var(--green-dark); padding: 2px 8px; border-radius: var(--radius-pill); font-weight: 500; display: inline-block; margin-bottom: 6px; }
+  .faq-item { border-bottom: 0.5px solid var(--border); padding: 16px 0; cursor: pointer; }
+  .faq-q { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+  .faq-q-text { font-size: 13px; font-weight: 500; }
+  .faq-toggle { width: 22px; height: 22px; border-radius: 50%; border: 0.5px solid var(--border2); background: var(--surface); display: flex; align-items: center; justify-content: center; font-size: 16px; color: var(--text2); flex-shrink: 0; transition: transform .2s; }
+  .faq-toggle.open { transform: rotate(45deg); }
+  .faq-a { font-size: 13px; color: var(--text2); margin-top: 10px; line-height: 1.65; display: none; }
+  .faq-a.open { display: block; }
+
+  /* CONTACT FORM */
+  .contact-wrap { padding: 40px 32px; display: grid; grid-template-columns: minmax(0,1.6fr) minmax(0,1fr); gap: 40px; }
+  .form-card { background: var(--white); border: 0.5px solid var(--border); border-radius: var(--radius-lg); padding: 28px; }
+  .field-group { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .field-wrap { margin-bottom: 18px; }
+  .field-label { font-size: 12px; font-weight: 500; color: var(--text2); display: block; margin-bottom: 6px; }
+  .field-hint { font-size: 11px; color: var(--text3); margin-top: 4px; }
+  input[type=text], input[type=email], select, textarea { width: 100%; padding: 9px 12px; border: 0.5px solid var(--border2); border-radius: var(--radius-md); font-size: 13px; font-family: var(--sans); color: var(--text1); background: var(--white); }
+  input[type=text]:focus, input[type=email]:focus, select:focus, textarea:focus { outline: none; border-color: var(--green-mid); }
+  textarea { min-height: 100px; resize: vertical; }
+  .chip-row { display: flex; gap: 7px; flex-wrap: wrap; }
+  .chip { font-size: 12px; padding: 6px 13px; border-radius: var(--radius-pill); border: 0.5px solid var(--border2); background: var(--white); color: var(--text2); cursor: pointer; user-select: none; transition: all .15s; }
+  .chip.sel { background: var(--green-light); border-color: var(--green-text); color: var(--green-dark); font-weight: 500; }
+  .submit-btn { width: 100%; padding: 13px; border-radius: var(--radius-md); background: var(--green-mid); color: var(--white); font-size: 14px; font-weight: 500; border: none; cursor: pointer; margin-top: 6px; }
+  .reassure { font-size: 12px; color: var(--text3); text-align: center; margin-top: 10px; }
+  .sidebar-label { font-size: 11px; font-weight: 500; color: var(--text3); letter-spacing: .06em; text-transform: lowercase; margin-bottom: 16px; }
+  .expect-row { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 18px; }
+  .expect-num { width: 26px; height: 26px; border-radius: 50%; background: var(--green-light); color: var(--green-dark); font-size: 12px; font-weight: 500; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .expect-title { font-size: 13px; font-weight: 500; margin-bottom: 2px; }
+  .expect-desc { font-size: 12px; color: var(--text2); line-height: 1.5; }
+  .annie-card { background: var(--surface); border-radius: var(--radius-lg); padding: 16px; margin-top: 28px; display: flex; gap: 12px; }
+  .annie-av { width: 38px; height: 38px; border-radius: 50%; background: var(--green-light); border: 0.5px solid var(--green-border); display: flex; align-items: center; justify-content: center; font-family: var(--serif); font-size: 14px; font-weight: 500; color: var(--green-dark); flex-shrink: 0; }
+  .annie-quote { font-family: var(--serif); font-style: italic; font-size: 12px; color: var(--text2); line-height: 1.6; }
+  .annie-name { font-size: 11px; color: var(--text3); margin-top: 6px; }
+  .contact-direct { margin-top: 22px; padding-top: 20px; border-top: 0.5px solid var(--border); }
+  .contact-direct p { font-size: 12px; color: var(--text3); font-weight: 500; margin-bottom: 8px; }
+  .contact-direct .dc { font-size: 13px; color: var(--text2); margin-bottom: 4px; }
+  .contact-direct .dc span { color: var(--text1); font-weight: 500; }
+  .contact-direct .dc .handle { color: var(--green-text); }
+  .success-wrap { display: none; padding: 64px 32px; text-align: center; }
+  .success-icon { width: 56px; height: 56px; border-radius: 50%; background: var(--green-light); display: flex; align-items: center; justify-content: center; margin: 0 auto 22px; }
+  .success-h { font-family: var(--serif); font-size: 22px; margin-bottom: 10px; }
+  .success-h em { font-style: italic; color: var(--green-text); }
+  .success-sub { font-size: 13px; color: var(--text2); max-width: 380px; margin: 0 auto 24px; line-height: 1.65; }
+  .success-detail { background: var(--surface); border-radius: var(--radius-lg); padding: 18px 22px; max-width: 400px; margin: 0 auto 22px; text-align: left; }
+  .success-detail p { font-size: 13px; color: var(--text2); line-height: 1.55; margin-bottom: 6px; }
+  .success-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .success-cta { font-size: 13px; font-weight: 500; padding: 10px 22px; border-radius: var(--radius-md); background: var(--green-mid); color: var(--white); border: none; cursor: pointer; }
+  .success-back { font-size: 13px; color: var(--green-text); background: none; border: none; cursor: pointer; }
+
+  /* AREA GUIDE */
+  .guide-hero { padding: 40px 32px 32px; border-bottom: 0.5px solid var(--border); }
+  .breadcrumb { padding: 10px 32px; font-size: 12px; color: var(--text3); border-bottom: 0.5px solid var(--border); background: var(--surface); }
+  .breadcrumb span { color: var(--green-text); cursor: pointer; }
+  .verdict-bar { background: var(--green-light); border-radius: var(--radius-md); padding: 14px 18px; max-width: 520px; margin-top: 20px; }
+  .verdict-label { font-size: 11px; font-weight: 500; color: var(--green-dark); letter-spacing: .05em; text-transform: lowercase; margin-bottom: 3px; }
+  .verdict-text { font-family: var(--serif); font-style: italic; font-size: 13px; color: var(--green-dark); line-height: 1.55; }
+  .facts-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 10px; }
+  .fact-card { background: var(--surface); border-radius: var(--radius-md); padding: 14px; }
+  .fact-v { font-size: 16px; font-weight: 500; margin-bottom: 2px; }
+  .fact-k { font-size: 11px; color: var(--text3); }
+  .life-row { display: flex; gap: 14px; align-items: flex-start; margin-bottom: 18px; }
+  .life-icon { width: 34px; height: 34px; border-radius: var(--radius-md); background: var(--green-light); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .life-title { font-size: 13px; font-weight: 500; margin-bottom: 3px; }
+  .life-desc { font-size: 13px; color: var(--text2); line-height: 1.55; }
+  .school-table { width: 100%; border-collapse: collapse; font-size: 13px; border: 0.5px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; }
+  .school-table th { background: var(--surface); padding: 9px 14px; text-align: left; font-weight: 500; border-bottom: 0.5px solid var(--border); }
+  .school-table td { padding: 9px 14px; border-bottom: 0.5px solid var(--border); color: var(--text2); }
+  .school-table tr:last-child td { border-bottom: none; }
+  .honest-card { border-radius: var(--radius-lg); padding: 18px 22px; margin-bottom: 12px; }
+  .honest-card.pro { background: var(--green-light); border: 0.5px solid var(--green-border); }
+  .honest-card.con { background: var(--amber-light); border: 0.5px solid var(--amber-border); }
+  .honest-title { font-size: 12px; font-weight: 500; text-transform: lowercase; letter-spacing: .05em; margin-bottom: 10px; }
+  .honest-title.pro { color: var(--green-dark); }
+  .honest-title.con { color: var(--amber-text); }
+  .honest-item { font-size: 13px; margin-bottom: 6px; padding-left: 14px; position: relative; line-height: 1.5; }
+  .honest-item::before { content: '—'; position: absolute; left: 0; opacity: .5; }
+  .honest-item.pro { color: var(--green-dark); }
+  .honest-item.con { color: var(--amber-text); }
+  .area-nav-pills { display: flex; gap: 8px; flex-wrap: wrap; }
+  .area-pill { font-size: 12px; padding: 6px 14px; border-radius: var(--radius-pill); border: 0.5px solid var(--border2); background: var(--white); color: var(--text2); cursor: pointer; transition: all .15s; }
+  .area-pill:hover { border-color: var(--border2); color: var(--text1); }
+
+  /* AREAS PAGE */
+  .matcher { background: var(--surface); padding: 40px 32px; border-bottom: 0.5px solid var(--border); }
+  .q-label { font-size: 13px; font-weight: 500; margin-bottom: 10px; }
+  .opt-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px; }
+  .opt-btn { font-size: 12px; padding: 6px 15px; border-radius: var(--radius-pill); border: 0.5px solid var(--border2); background: var(--white); color: var(--text2); cursor: pointer; transition: all .15s; }
+  .opt-btn.sel { background: var(--green-light); border-color: var(--green-text); color: var(--green-dark); font-weight: 500; }
+  .result-box { background: var(--white); border: 0.5px solid var(--border2); border-radius: var(--radius-lg); padding: 18px 22px; display: none; }
+  .result-label { font-size: 11px; color: var(--text3); text-transform: lowercase; letter-spacing: .05em; margin-bottom: 4px; }
+  .result-area { font-family: var(--serif); font-style: italic; font-size: 20px; color: var(--green-text); margin-bottom: 6px; }
+  .result-why { font-size: 13px; color: var(--text2); line-height: 1.55; margin-bottom: 16px; }
+  .result-cta-btn { font-size: 13px; font-weight: 500; padding: 9px 20px; border-radius: var(--radius-md); background: var(--green-mid); color: var(--white); border: none; cursor: pointer; }
+  .compare-table { width: 100%; border-collapse: collapse; font-size: 12px; border: 0.5px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; }
+  .compare-table th { background: var(--green-light); color: var(--green-dark); padding: 10px 12px; text-align: left; font-weight: 500; border-bottom: 0.5px solid var(--border); }
+  .compare-table th:first-child { background: var(--surface); color: var(--text1); }
+  .compare-table td { padding: 9px 12px; border-bottom: 0.5px solid var(--border); color: var(--text2); border-right: 0.5px solid var(--border); }
+  .compare-table td:last-child { border-right: none; }
+  .compare-table tr:last-child td { border-bottom: none; }
+  .compare-table td.label { font-weight: 500; color: var(--text1); background: var(--surface); }
+  .compare-table td.good { color: var(--green-dark); font-weight: 500; }
+  .compare-table td.mid { color: var(--amber-text); }
+
+  /* FOOTER */
+  .site-footer { background: var(--surface); border-top: 0.5px solid var(--border); padding: 24px 32px; display: flex; justify-content: space-between; align-items: center; }
+  .footer-logo { font-family: var(--serif); font-size: 14px; color: var(--text2); }
+  .footer-links { display: flex; gap: 20px; }
+  .footer-links a { font-size: 12px; color: var(--text3); cursor: pointer; }
+  .footer-note { font-size: 12px; color: var(--text3); }
+
+  /* ABOUT STATS */
+  .about-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 24px; }
+  .about-stat { background: var(--surface); border-radius: var(--radius-md); padding: 16px; text-align: center; }
+  .about-stat-v { font-size: 20px; font-weight: 500; margin-bottom: 3px; }
+  .about-stat-k { font-size: 11px; color: var(--text2); }
+
+  @media (max-width: 640px) {
+    .hero h1 { font-size: 26px; }
+    .about-hero { grid-template-columns: 1fr; }
+    .contact-wrap { grid-template-columns: 1fr; }
+    .field-group { grid-template-columns: 1fr; }
+    .trust-grid, .about-stats { grid-template-columns: repeat(2, 1fr); }
+    .cards-grid { grid-template-columns: 1fr; }
+    .section { padding: 36px 20px; }
+    .hero { padding: 48px 20px 40px; }
+    .site-nav { padding: 12px 20px; }
+    .site-nav .nav-links { display: none; }
+    .contact-wrap { padding: 32px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="site-nav">
+  <span class="logo">Phuket Living</span>
+  <div class="nav-links">
+    <a onclick="showPage('areas')">Areas</a>
+    <a onclick="showPage('properties')">Properties</a>
+    <a onclick="showPage('about')">About</a>
+    <a onclick="showPage('resources')">Resources</a>
+  </div>
+  <button class="nav-cta" onclick="showPage('contact')">Get in touch</button>
+</nav>
+
+<!-- PAGE TABS -->
+<div class="page-tabs">
+  <button class="page-tab active" onclick="showPage('home',this)">Homepage</button>
+  <button class="page-tab" onclick="showPage('areas',this)">Areas</button>
+  <button class="page-tab" onclick="showPage('area-guide',this)">Area guide (Rawai)</button>
+  <button class="page-tab" onclick="showPage('properties',this)">Properties</button>
+  <button class="page-tab" onclick="showPage('about',this)">About</button>
+  <button class="page-tab" onclick="showPage('resources',this)">Resources</button>
+  <button class="page-tab" onclick="showPage('contact',this)">Contact</button>
+</div>
+
+<!-- ====== HOME ====== -->
+<div id="home" class="page active">
+  <div class="hero">
+    <p class="eyebrow">Phuket relocation · family-focused</p>
+    <h1>Choosing the <em>right area</em><br>matters more than<br>the right property.</h1>
+    <p class="sub">We help expat families relocate to Phuket with confidence — starting with how you want to live, not what's available.</p>
+    <div class="hero-btns">
+      <button class="btn-primary" onclick="showPage('areas')">Explore areas →</button>
+      <button class="btn-secondary" onclick="showPage('properties')">Browse properties</button>
+    </div>
+  </div>
+
+  <div class="section tinted">
+    <p class="section-label">Where you'll live</p>
+    <h2>Every area in Phuket<br>lives <em>differently.</em></h2>
+    <p class="sec-sub">Choose an area first — then we'll find the right home within it.</p>
+    <div class="cards-grid">
+      <div class="card" onclick="showPage('area-guide')">
+        <div class="card-img"><svg width="40" height="40" viewBox="0 0 40 40"><rect x="6" y="20" width="28" height="16" rx="2" fill="#222"/><polygon points="2,21 20,8 38,21" fill="#222"/></svg><span class="area-badge" style="background:#E1F5EE;color:#085041">Bangtao</span></div>
+        <div class="card-body"><p class="card-title">Bangtao</p><p class="card-desc">International schools, expat community, structured lifestyle.</p><div class="card-tags"><span class="tag">Best for families</span></div></div>
+        <div class="card-cta"><button class="card-link">Full guide →</button></div>
+      </div>
+      <div class="card" onclick="showPage('area-guide')">
+        <div class="card-img"><svg width="40" height="40" viewBox="0 0 40 40"><rect x="6" y="20" width="28" height="16" rx="2" fill="#222"/><polygon points="2,21 20,8 38,21" fill="#222"/></svg><span class="area-badge" style="background:#FAEEDA;color:#633806">Rawai</span></div>
+        <div class="card-body"><p class="card-title">Rawai</p><p class="card-desc">Quieter pace, local feel, sea views, close to Nai Harn beach.</p><div class="card-tags"><span class="tag">Best for relaxed living</span></div></div>
+        <div class="card-cta"><button class="card-link">Full guide →</button></div>
+      </div>
+      <div class="card">
+        <div class="card-img"><svg width="40" height="40" viewBox="0 0 40 40"><rect x="6" y="20" width="28" height="16" rx="2" fill="#222"/><polygon points="2,21 20,8 38,21" fill="#222"/></svg><span class="area-badge" style="background:#EEEDFE;color:#3C3489">Cherngtalay</span></div>
+        <div class="card-body"><p class="card-title">Cherngtalay</p><p class="card-desc">Modern, connected, growing expat hub near Laguna.</p><div class="card-tags"><span class="tag">Best for remote workers</span></div></div>
+        <div class="card-cta"><button class="card-link">Full guide →</button></div>
+      </div>
+      <div class="card">
+        <div class="card-img"><svg width="40" height="40" viewBox="0 0 40 40"><rect x="6" y="20" width="28" height="16" rx="2" fill="#222"/><polygon points="2,21 20,8 38,21" fill="#222"/></svg><span class="area-badge" style="background:#FAECE7;color:#712B13">Nai Harn</span></div>
+        <div class="card-body"><p class="card-title">Nai Harn</p><p class="card-desc">Calm, scenic, less touristy — great for a quieter chapter.</p><div class="card-tags"><span class="tag">Best for retirees</span></div></div>
+        <div class="card-cta"><button class="card-link">Full guide →</button></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:6px">
+      <div><p class="section-label">Handpicked homes</p><h2>A few homes we'd<br>recommend <em>right now.</em></h2></div>
+      <button class="card-link" onclick="showPage('properties')" style="font-size:12px">See all →</button>
+    </div>
+    <p class="sec-sub">Not a full catalogue — just the ones worth your attention this month.</p>
+    <div class="shortlist-bar"><span>Shortlist — <strong id="sl-count-home">0 selected</strong></span><button class="req-btn" id="sl-btn-home" disabled onclick="showPage('contact')">Request viewings ↗</button></div>
+    <div class="cards-grid">
+      <div class="card"><div class="card-img"><svg width="36" height="36" viewBox="0 0 40 40"><rect x="6" y="20" width="28" height="16" rx="2" fill="#222"/><polygon points="2,21 20,8 38,21" fill="#222"/></svg><span class="area-badge" style="background:#E1F5EE;color:#085041">Bangtao</span><button class="add-btn" onclick="toggleSL(this,'home',event)">+</button></div><div class="card-body"><p class="card-title">4-bed pool villa</p><p class="card-meta">320 sqm · private pool</p><p class="card-price">฿65,000 / mo</p><div class="card-tags"><span class="tag">Near schools</span><span class="tag">Pool</span></div></div></div>
+      <div class="card"><div class="card-img"><svg width="36" height="36" viewBox="0 0 40 40"><rect x="6" y="20" width="28" height="16" rx="2" fill="#222"/><polygon points="2,21 20,8 38,21" fill="#222"/></svg><span class="area-badge" style="background:#FAEEDA;color:#633806">Rawai</span><button class="add-btn" onclick="toggleSL(this,'home',event)">+</button></div><div class="card-body"><p class="card-title">3-bed townhouse</p><p class="card-meta">210 sqm · sea views</p><p class="card-price">฿38,000 / mo</p><div class="card-tags"><span class="tag">Quiet</span><span class="tag">Sea views</span></div></div></div>
+      <div class="card"><div class="card-img"><svg width="36" height="36" viewBox="0 0 40 40"><rect x="6" y="20" width="28" height="16" rx="2" fill="#222"/><polygon points="2,21 20,8 38,21" fill="#222"/></svg><span class="area-badge" style="background:#EEEDFE;color:#3C3489">Cherngtalay</span><button class="add-btn" onclick="toggleSL(this,'home',event)">+</button></div><div class="card-body"><p class="card-title">3-bed modern villa</p><p class="card-meta">260 sqm · pool</p><p class="card-price">฿52,000 / mo</p><div class="card-tags"><span class="tag">Pool</span><span class="tag">Community</span></div></div></div>
+    </div>
+  </div>
+
+  <div class="section tinted">
+    <p class="section-label">How it works</p>
+    <h2>Three steps.<br>No <em>overwhelm.</em></h2>
+    <p class="sec-sub">We move at your pace — you're never pressured.</p>
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><div><p class="step-title">Tell us how you want to live</p><p class="step-desc">Schools, lifestyle pace, budget, timeline. No form — just a conversation.</p></div></div>
+      <div class="step"><div class="step-num">2</div><div><p class="step-title">We match you to the right areas and homes</p><p class="step-desc">A curated shortlist — not 40 listings. Only properties that fit.</p></div></div>
+      <div class="step"><div class="step-num">3</div><div><p class="step-title">View properties with Annie in person</p><p class="step-desc">She accompanies every viewing and answers questions on the ground.</p></div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <p class="section-label">Why families trust us</p>
+    <h2 style="margin-bottom:20px"><em>Clarity</em> in every step.</h2>
+    <div class="trust-grid">
+      <div class="trust-stat"><div class="trust-num">4.6★</div><div class="trust-label">Average rating</div></div>
+      <div class="trust-stat"><div class="trust-num">60+</div><div class="trust-label">Families relocated</div></div>
+      <div class="trust-stat"><div class="trust-num">6 areas</div><div class="trust-label">Covered in depth</div></div>
+    </div>
+    <div class="quote-card"><p class="quote-text">"We didn't know which area would suit us — Annie helped us think through our routine first. We ended up in Bangtao and it's been perfect for the kids."</p><p class="quote-attr">— Sarah, relocated from Melbourne · 2024</p></div>
+    <div class="quote-card"><p class="quote-text">"No pressure, no endless listings. She sent us three properties and one was exactly right. The process felt human."</p><p class="quote-attr">— James & Claire, relocated from London · 2023</p></div>
+  </div>
+
+  <div class="footer-cta">
+    <h2>Relocating is a life decision,<br>not a property transaction.</h2>
+    <p>Start with a conversation — not a search.</p>
+    <button class="btn-light" onclick="showPage('properties')">Browse properties →</button>
+    <button class="btn-ghost" onclick="showPage('contact')">Get in touch</button>
+  </div>
+  <footer class="site-footer"><span class="footer-logo">Phuket Living</span><div class="footer-links"><a onclick="showPage('areas')">Areas</a><a onclick="showPage('properties')">Properties</a><a onclick="showPage('about')">About</a><a onclick="showPage('resources')">Resources</a></div><span class="footer-note">© 2025 Phuket Living</span></footer>
+</div>
+
+<!-- ====== AREAS ====== -->
+<div id="areas" class="page">
+  <div class="hero" style="text-align:left;padding:40px 32px 32px">
+    <p class="eyebrow">Where you'll live</p>
+    <h1 style="font-size:28px">Every area in Phuket<br>lives <em>differently.</em></h1>
+    <p class="sub" style="margin:0">Before we show you a single property, we want you to understand the areas. The right neighbourhood makes the right home possible.</p>
+  </div>
+  <div class="section">
+    <p class="section-label">The areas</p>
+    <h2>Four areas.<br>Four different <em>lifestyles.</em></h2>
+    <div class="cards-grid">
+      <div class="card" onclick="showPage('area-guide')"><div class="card-img"><svg width="40" height="40" viewBox="0 0 40 40"><rect x="6" y="20" width="28" height="16" rx="2" fill="#222"/><polygon points="2,21 20,8 38,21" fill="#222"/></svg><span class="area-badge" style="background:#E1F5EE;color:#085041">Bangtao</span></div><div class="card-body"><p class="card-title">Bangtao</p><p class="card-desc">The most family-structured area — close to international schools, strong expat community.</p><div class="card-tags"><span class="tag">International schools</span><span class="tag">Expat community</span></div></div><div class="area-facts"><div><p class="fact-val">฿45–90k</p><p class="fact-key">Monthly rent</p></div><div><p class="fact-val">3 schools</p><p class="fact-key">Within 10 min</p></div><div><p class="fact-val">Busy</p><p class="fact-key">Pace</p></div></div><div class="card-cta"><button class="card-link">Full guide →</button><span class="card-count">8 properties</span></div></div>
+      <div class="card" onclick="showPage('area-guide')"><div class="card-img"><svg width="40" height="40" viewBox="0 0 40 40"><rect x="6" y="20" width="28" height="16" rx="2" fill="#222"/><polygon points="2,21 20,8 38,21" fill="#222"/></svg><span class="area-badge" style="background:#FAEEDA;color:#633806">Rawai</span></div><div class="card-body"><p class="card-title">Rawai</p><p class="card-desc">Quieter, more local. Sea views, relaxed pace, proximity to Nai Harn beach.</p><div class="card-tags"><span class="tag">Sea views</span><span class="tag">Quiet streets</span></div></div><div class="area-facts"><div><p class="fact-val">฿28–55k</p><p class="fact-key">Monthly rent</p></div><div><p class="fact-val">20 min</p><p class="fact-key">To school</p></div><div><p class="fact-val">Relaxed</p><p class="fact-key">Pace</p></div></div><div class="card-cta"><button class="card-link">Full guide →</button><span class="card-count">6 properties</span></div></div>
+      <div class="card"><div class="card-img"><svg width="40" height="40" viewBox="0 0 40 40"><rect x="6" y="20" width="28" height="16" rx="2" fill="#222"/><polygon points="2,21 20,8 38,21" fill="#222"/></svg><span class="area-badge" style="background:#EEEDFE;color:#3C3489">Cherngtalay</span></div><div class="card-body"><p class="card-title">Cherngtalay</p><p class="card-desc">Modern, well-connected. Strong choice for remote workers near Laguna.</p><div class="card-tags"><span class="tag">Fast internet</span><span class="tag">Near Laguna</span></div></div><div class="area-facts"><div><p class="fact-val">฿35–70k</p><p class="fact-key">Monthly rent</p></div><div><p class="fact-val">10 min</p><p class="fact-key">To school</p></div><div><p class="fact-val">Active</p><p class="fact-key">Pace</p></div></div><div class="card-cta"><button class="card-link">Full guide →</button><span class="card-count">5 properties</span></div></div>
+      <div class="card"><div class="card-img"><svg width="40" height="40" viewBox="0 0 40 40"><rect x="6" y="20" width="28" height="16" rx="2" fill="#222"/><polygon points="2,21 20,8 38,21" fill="#222"/></svg><span class="area-badge" style="background:#FAECE7;color:#712B13">Nai Harn</span></div><div class="card-body"><p class="card-title">Nai Harn</p><p class="card-desc">Scenic, calm and less developed. Ideal for privacy and a slower chapter.</p><div class="card-tags"><span class="tag">Hillside views</span><span class="tag">Private feel</span></div></div><div class="area-facts"><div><p class="fact-val">฿40–80k</p><p class="fact-key">Monthly rent</p></div><div><p class="fact-val">25 min</p><p class="fact-key">To school</p></div><div><p class="fact-val">Slow</p><p class="fact-key">Pace</p></div></div><div class="card-cta"><button class="card-link">Full guide →</button><span class="card-count">4 properties</span></div></div>
+    </div>
+  </div>
+  <div class="matcher">
+    <p class="section-label">Not sure where to start?</p>
+    <h2 style="margin-bottom:4px">Find your <em>area match.</em></h2>
+    <p style="font-size:13px;color:var(--text2);margin-bottom:20px">Answer two questions and we'll point you in the right direction.</p>
+    <p class="q-label">What matters most to you?</p>
+    <div class="opt-row" id="mq1"><button class="opt-btn" onclick="mpick('mq1',this,'schools')">Schools &amp; family routine</button><button class="opt-btn" onclick="mpick('mq1',this,'quiet')">Peace and quiet</button><button class="opt-btn" onclick="mpick('mq1',this,'remote')">Remote work setup</button><button class="opt-btn" onclick="mpick('mq1',this,'retire')">Relaxed retirement</button></div>
+    <p class="q-label">What lifestyle pace do you prefer?</p>
+    <div class="opt-row" id="mq2"><button class="opt-btn" onclick="mpick('mq2',this,'busy')">Busy — things to do nearby</button><button class="opt-btn" onclick="mpick('mq2',this,'mid')">Balanced — active but calm</button><button class="opt-btn" onclick="mpick('mq2',this,'slow')">Slow — peace above all</button></div>
+    <div class="result-box" id="matcher-result"><p class="result-label">Our suggestion</p><p class="result-area" id="m-area"></p><p class="result-why" id="m-why"></p><button class="result-cta-btn" onclick="showPage('area-guide')">View area guide →</button></div>
+  </div>
+  <div class="section">
+    <p class="section-label">Side by side</p>
+    <h2 style="margin-bottom:20px">Quick area <em>comparison.</em></h2>
+    <table class="compare-table"><thead><tr><th></th><th>Bangtao</th><th>Rawai</th><th>Cherngtalay</th><th>Nai Harn</th></tr></thead><tbody><tr><td class="label">Best for</td><td class="good">Families</td><td class="good">Couples</td><td class="good">Remote work</td><td class="good">Retirees</td></tr><tr><td class="label">Schools nearby</td><td class="good">Yes — 3+</td><td class="mid">20 min drive</td><td class="mid">10 min drive</td><td class="mid">25 min drive</td></tr><tr><td class="label">Lifestyle pace</td><td>Active</td><td class="good">Relaxed</td><td>Active</td><td class="good">Very quiet</td></tr><tr><td class="label">Rent / mo</td><td>฿45–90k</td><td class="good">฿28–55k</td><td>฿35–70k</td><td>฿40–80k</td></tr><tr><td class="label">Expat community</td><td class="good">Very strong</td><td class="mid">Growing</td><td class="good">Strong</td><td class="mid">Small</td></tr></tbody></table>
+  </div>
+  <div class="footer-cta"><h2>Not sure which area fits?</h2><p>Talk to Annie — no commitment, just clarity.</p><button class="btn-light" onclick="showPage('contact')">Get in touch →</button></div>
+</div>
+
+<!-- ====== AREA GUIDE (RAWAI) ====== -->
+<div id="area-guide" class="page">
+  <div class="breadcrumb"><span onclick="showPage('areas')">Areas</span> / Rawai</div>
+  <div class="guide-hero">
+    <p class="eyebrow">Area guide · South Phuket</p>
+    <h1 style="font-family:var(--serif);font-size:28px;font-weight:400;line-height:1.3;margin-bottom:10px">Rawai — quiet, local,<br><em style="color:var(--green-text)">genuinely Phuket.</em></h1>
+    <p style="font-size:14px;color:var(--text2);line-height:1.65;max-width:560px;margin-bottom:0">If Bangtao feels like an expat suburb, Rawai feels like a town. It has a slower rhythm, a stronger local identity, and sea views that most areas can't match.</p>
+    <div class="verdict-bar" style="margin-top:20px"><p class="verdict-label">Annie's honest take</p><p class="verdict-text">"Rawai is for people who value peace over proximity. If schools aren't urgent, it's often the most liveable area in Phuket."</p></div>
+  </div>
+  <div class="section tinted">
+    <p class="section-label">At a glance</p>
+    <h2 style="margin-bottom:20px">The <em>fast facts.</em></h2>
+    <div class="facts-grid"><div class="fact-card"><p class="fact-v">฿28–55k</p><p class="fact-k">Monthly rent</p></div><div class="fact-card"><p class="fact-v">Relaxed</p><p class="fact-k">Lifestyle pace</p></div><div class="fact-card"><p class="fact-v">20 min</p><p class="fact-k">To int'l school</p></div><div class="fact-card"><p class="fact-v">5 min</p><p class="fact-k">To Nai Harn beach</p></div><div class="fact-card"><p class="fact-v">Good</p><p class="fact-k">Healthcare access</p></div><div class="fact-card"><p class="fact-v">Growing</p><p class="fact-k">Expat community</p></div></div>
+  </div>
+  <div class="section">
+    <p class="section-label">Daily life</p>
+    <h2 style="margin-bottom:20px">What living here<br>actually <em>feels like.</em></h2>
+    <div class="life-row"><div class="life-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="#0F6E56" stroke-width="1.2"/><path d="M8 5v3l2 2" stroke="#0F6E56" stroke-width="1.2" stroke-linecap="round"/></svg></div><div><p class="life-title">Morning routine</p><p class="life-desc">Walk or drive to Rawai seafront for coffee and a local breakfast. Grab fresh fish from the pier market. Very few tourists this early — it's genuinely local.</p></div></div>
+    <div class="life-row"><div class="life-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="6" width="12" height="8" rx="1.5" stroke="#0F6E56" stroke-width="1.2"/><path d="M5 6V4.5a3 3 0 016 0V6" stroke="#0F6E56" stroke-width="1.2" stroke-linecap="round"/></svg></div><div><p class="life-title">Schooling</p><p class="life-desc">No international schools in Rawai itself — the closest are about 15–20 minutes away. Manageable with a car, but worth knowing before committing.</p></div></div>
+    <div class="life-row"><div class="life-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2C5.24 2 3 4.24 3 7c0 3.5 5 9 5 9s5-5.5 5-9c0-2.76-2.24-5-5-5z" stroke="#0F6E56" stroke-width="1.2"/><circle cx="8" cy="7" r="1.5" stroke="#0F6E56" stroke-width="1.2"/></svg></div><div><p class="life-title">Getting around</p><p class="life-desc">You'll need a car or scooter. Rawai isn't walkable to supermarkets, but Nai Harn beach and Chalong pier are within 10 minutes.</p></div></div>
+    <div class="life-row"><div class="life-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 13l4-4 3 3 5-7" stroke="#0F6E56" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><p class="life-title">Healthcare</p><p class="life-desc">Chalong Hospital is 10 minutes away. Bangkok Hospital Phuket is around 25 minutes. Adequate for day-to-day, with solid options for anything more serious.</p></div></div>
+    <div class="life-row"><div class="life-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M8 3l5 5-5 5" stroke="#0F6E56" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><p class="life-title">Weekends</p><p class="life-desc">Nai Harn beach, Windmill viewpoint, Promthep Cape, diving trips from Chalong pier. Some of the best sunsets in Phuket — without the crowds.</p></div></div>
+  </div>
+  <div class="section tinted">
+    <p class="section-label">Nearest schools</p>
+    <h2 style="margin-bottom:20px">School options<br>from <em>Rawai.</em></h2>
+    <table class="school-table"><thead><tr><th>School</th><th>Distance</th><th>Type</th></tr></thead><tbody><tr><td>Headstart International</td><td>15 min</td><td>British curriculum</td></tr><tr><td>Kajonkiet International</td><td>18 min</td><td>IB / Thai bilingual</td></tr><tr><td>QSI International</td><td>22 min</td><td>American curriculum</td></tr></tbody></table>
+  </div>
+  <div class="section">
+    <p class="section-label">The honest picture</p>
+    <h2 style="margin-bottom:20px">What Rawai gets<br><em>right</em> — and what it doesn't.</h2>
+    <div class="honest-card pro"><p class="honest-title pro">What works well</p><p class="honest-item pro">Some of the best sea views and sunsets in Phuket</p><p class="honest-item pro">Noticeably quieter than the north — you feel the difference immediately</p><p class="honest-item pro">Strong local market scene and authentic Thai restaurants</p><p class="honest-item pro">Lower rents than Bangtao for equivalent space</p><p class="honest-item pro" style="margin-bottom:0">Growing expat community with a more grounded, less resort-y feel</p></div>
+    <div class="honest-card con"><p class="honest-title con">What to consider</p><p class="honest-item con">No international schools in the area — a 15–20 min daily drive is required</p><p class="honest-item con">Not walkable — a car or scooter is essential, not optional</p><p class="honest-item con">Fewer Western restaurants and supermarkets than Bangtao</p><p class="honest-item con" style="margin-bottom:0">Further from the airport (~45 min) — relevant if you travel frequently</p></div>
+  </div>
+  <div class="section tinted">
+    <p class="section-label">Properties in Rawai</p>
+    <h2>Homes we'd recommend <em>right now.</em></h2>
+    <p class="sec-sub" style="margin-bottom:16px">Updated monthly — only homes worth your time.</p>
+    <div class="shortlist-bar"><span>Shortlist — <strong id="sl-count-guide">0 selected</strong></span><button class="req-btn" id="sl-btn-guide" disabled onclick="showPage('contact')">Request viewings ↗</button></div>
+    <div class="cards-grid">
+      <div class="card"><div class="card-img"><svg width="36" height="36" viewBox="0 0 40 40"><rect x="6" y="20" width="28" height="16" rx="2" fill="#222"/><polygon points="2,21 20,8 38,21" fill="#222"/></svg><span class="area-badge" style="background:#FAEEDA;color:#633806">Rawai</span><button class="add-btn" onclick="toggleSL(this,'guide',event)">+</button></div><div class="card-body"><p class="card-title">3-bed townhouse</p><p class="card-meta">210 sqm · private garden</p><p class="card-price">฿38,000 / mo</p><div class="card-tags"><span class="tag">Sea views</span><span class="tag">Quiet</span></div></div></div>
+      <div class="card"><div class="card-img"><svg width="36" height="36" viewBox="0 0 40 40"><rect x="6" y="20" width="28" height="16" rx="2" fill="#222"/><polygon points="2,21 20,8 38,21" fill="#222"/></svg><span class="area-badge" style="background:#FAEEDA;color:#633806">Rawai</span><button class="add-btn" onclick="toggleSL(this,'guide',event)">+</button></div><div class="card-body"><p class="card-title">3-bed family home</p><p class="card-meta">240 sqm · large garden</p><p class="card-price">฿42,000 / mo</p><div class="card-tags"><span class="tag">Garden</span><span class="tag">Quiet street</span></div></div></div>
+      <div class="card"><div class="card-img"><svg width="36" height="36" viewBox="0 0 40 40"><rect x="6" y="20" width="28" height="16" rx="2" fill="#222"/><polygon points="2,21 20,8 38,21" fill="#222"/></svg><span class="area-badge" style="background:#FAEEDA;color:#633806">Rawai</span><button class="add-btn" onclick="toggleSL(this,'guide',event)">+</button></div><div class="card-body"><p class="card-title">2-bed sea view villa</p><p class="card-meta">160 sqm · hillside</p><p class="card-price">฿35,000 / mo</p><div class="card-tags"><span class="tag">Sea views</span><span class="tag">Private</span></div></div></div>
+    </div>
+  </div>
+  <div class="section">
+    <p class="section-label">Other areas</p>
+    <h2 style="margin-bottom:16px">Not sure Rawai is<br>the <em>right fit?</em></h2>
+    <div class="area-nav-pills"><button class="area-pill" onclick="showPage('areas')">Bangtao →</button><button class="area-pill" onclick="showPage('areas')">Cherngtalay →</button><button class="area-pill" onclick="showPage('areas')">Nai Harn →</button></div>
+  </div>
+  <div class="footer-cta"><h2>Still weighing up Rawai vs another area?</h2><p>Talk to Annie — she's lived in Phuket and knows each area personally.</p><button class="btn-light" onclick="showPage('contact')">Get in touch →</button></div>
+</div>
+
+<!-- ====== PROPERTIES ====== -->
+<div id="properties" class="page">
+  <div class="hero" style="text-align:left;padding:40px 32px 32px">
+    <p class="eyebrow">Curated listings</p>
+    <h1 style="font-size:28px">Homes we'd actually<br><em>recommend right now.</em></h1>
+    <p class="sub" style="margin:0">Not a full catalogue — only properties worth your time, updated monthly.</p>
+  </div>
+  <div class="section">
+    <div class="filter-row" id="prop-filters"><button class="fpill active" onclick="filterProps(this,'all')">All areas</button><button class="fpill" onclick="filterProps(this,'Bangtao')">Bangtao</button><button class="fpill" onclick="filterProps(this,'Rawai')">Rawai</button><button class="fpill" onclick="filterProps(this,'Cherngtalay')">Cherngtalay</button><button class="fpill" onclick="filterProps(this,'Nai Harn')">Nai Harn</button></div>
+    <div class="shortlist-bar"><span>Shortlist — <strong id="sl-count-props">0 selected</strong></span><button class="req-btn" id="sl-btn-props" disabled onclick="showPage('contact')">Request viewings ↗</button></div>
+    <div class="cards-grid" id="props-grid">
+      <div class="card" data-area="Bangtao"><div class="card-img"><svg width="36" height="36" viewBox="0 0 40 40"><rect x="6" y="20" width="28" height="16" rx="2" fill="#222"/><polygon points="2,21 20,8 38,21" fill="#222"/></svg><span class="area-badge" style="background:#E1F5EE;color:#085041">Bangtao</span><button class="add-btn" onclick="toggleSL(this,'props',event)">+</button></div><div class="card-body"><p class="card-title">4-bed pool villa</p><p class="card-meta">320 sqm · private pool</p><p class="card-price">฿65,000 / mo</p><div class="card-tags"><span class="tag">Pool</span><span class="tag">Near schools</span></div></div></div>
+      <div class="card" data-area="Rawai"><div class="card-img"><svg width="36" height="36" viewBox="0 0 40 40"><rect x="6" y="20" width="28" height="16" rx="2" fill="#222"/><polygon points="2,21 20,8 38,21" fill="#222"/></svg><span class="area-badge" style="background:#FAEEDA;color:#633806">Rawai</span><button class="add-btn" onclick="toggleSL(this,'props',event)">+</button></div><div class="card-body"><p class="card-title">3-bed townhouse</p><p class="card-meta">210 sqm · sea views</p><p class="card-price">฿38,000 / mo</p><div class="card-tags"><span class="tag">Quiet</span><span class="tag">Sea views</span></div></div></div>
+      <div class="card" data-area="Cherngtalay"><div class="card-img"><svg width="36" height="36" viewBox="0 0 40 40"><rect x="6" y="20" width="28" height="16" rx="2" fill="#222"/><polygon points="2,21 20,8 38,21" fill="#222"/></svg><span class="area-badge" style="background:#EEEDFE;color:#3C3489">Cherngtalay</span><button class="add-btn" onclick="toggleSL(this,'props',event)">+</button></div><div class="card-body"><p class="card-title">3-bed modern villa</p><p class="card-meta">260 sqm · pool</p><p class="card-price">฿52,000 / mo</p><div class="card-tags"><span class="tag">Pool</span><span class="tag">Community</span></div></div></div>
+      <div class="card" data-area="Bangtao"><div class="card-img"><svg width="36" height="36" viewBox="0 0 40 40"><rect x="6" y="20" width="28" height="16" rx="2" fill="#222"/><polygon points="2,21 20,8 38,21" fill="#222"/></svg><span class="area-badge" style="background:#E1F5EE;color:#085041">Bangtao</span><button class="add-btn" onclick="toggleSL(this,'props',event)">+</button></div><div class="card-body"><p class="card-title">2-bed condo</p><p class="card-meta">95 sqm</p><p class="card-price">฿22,000 / mo</p><div class="card-tags"><span class="tag">Low-maintenance</span></div></div></div>
+      <div class="card" data-area="Nai Harn"><div class="card-img"><svg width="36" height="36" viewBox="0 0 40 40"><rect x="6" y="20" width="28" height="16" rx="2" fill="#222"/><polygon points="2,21 20,8 38,21" fill="#222"/></svg><span class="area-badge" style="background:#FAECE7;color:#712B13">Nai Harn</span><button class="add-btn" onclick="toggleSL(this,'props',event)">+</button></div><div class="card-body"><p class="card-title">4-bed hillside villa</p><p class="card-meta">380 sqm</p><p class="card-price">฿75,000 / mo</p><div class="card-tags"><span class="tag">Sea views</span><span class="tag">Private</span></div></div></div>
+      <div class="card" data-area="Rawai"><div class="card-img"><svg width="36" height="36" viewBox="0 0 40 40"><rect x="6" y="20" width="28" height="16" rx="2" fill="#222"/><polygon points="2,21 20,8 38,21" fill="#222"/></svg><span class="area-badge" style="background:#FAEEDA;color:#633806">Rawai</span><button class="add-btn" onclick="toggleSL(this,'props',event)">+</button></div><div class="card-body"><p class="card-title">3-bed family home</p><p class="card-meta">240 sqm · garden</p><p class="card-price">฿42,000 / mo</p><div class="card-tags"><span class="tag">Garden</span><span class="tag">Quiet</span></div></div></div>
+    </div>
+    <p style="font-size:12px;color:var(--text3);text-align:center;margin-top:16px">Showing curated properties — not every listing, only the right ones</p>
+  </div>
+  <div class="footer-cta"><h2>Not sure which properties suit you?</h2><p>Tell Annie how you want to live — she'll match you to the right homes.</p><button class="btn-light" onclick="showPage('contact')">Get in touch →</button></div>
+</div>
+
+<!-- ====== ABOUT ====== -->
+<div id="about" class="page">
+  <div class="about-hero">
+    <div>
+      <p class="eyebrow">About Phuket Living</p>
+      <h1 style="font-family:var(--serif);font-size:28px;font-weight:400;line-height:1.3;margin-bottom:14px">I help families relocate<br>to Phuket — <em style="color:var(--green-text)">with clarity,<br>not pressure.</em></h1>
+      <p style="font-size:14px;color:var(--text2);line-height:1.7;margin-bottom:18px">Most people searching for a home in Phuket feel overwhelmed before they've even started. I started Phuket Living because I wanted to be the person I wish I'd had when I first moved here.</p>
+      <p class="sig">Annie</p><p class="sig-role">Founder, Phuket Living</p>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:10px;padding-top:4px">
+      <div class="avatar"><span class="avatar-init">A</span></div>
+      <p style="font-size:11px;color:var(--green-text);font-weight:500;text-align:center;margin:0">Living in Phuket<br><span style="color:var(--text3);font-weight:400">since 2017</span></p>
+    </div>
+  </div>
+  <div class="section">
+    <p class="section-label">The story</p>
+    <h2 style="margin-bottom:16px">Why I built <em>Phuket Living.</em></h2>
+    <p style="font-size:14px;color:var(--text2);line-height:1.75;margin-bottom:14px">I moved to Phuket in 2017 with my partner, two suitcases, and a lot of questions nobody could answer properly. We ended up in the wrong area for six months — beautiful property, wrong lifestyle fit.</p>
+    <p style="font-size:14px;color:var(--text2);line-height:1.75;margin-bottom:14px">When we eventually found the right neighbourhood, everything shifted. The kids settled. Our routine clicked. We stopped feeling like we were on a long holiday and started feeling like we actually lived here.</p>
+    <div class="pull-quote">"I realised the property was never really the decision. The area was the decision — and nobody had helped us make it properly."</div>
+    <p style="font-size:14px;color:var(--text2);line-height:1.75">That experience became the foundation of Phuket Living. Every client I work with starts with the same question: how do you actually want to live? The property comes second. The life comes first.</p>
+  </div>
+  <div class="section tinted">
+    <p class="section-label">What I believe</p>
+    <h2 style="margin-bottom:20px">Five things that guide<br>every <em>conversation.</em></h2>
+    <div class="belief-card"><div class="belief-num">1</div><div><p class="belief-title">Choosing the right area matters more than choosing the right property</p><p class="belief-desc">A great home in the wrong neighbourhood will never feel right. We start with lifestyle, not listings.</p></div></div>
+    <div class="belief-card"><div class="belief-num">2</div><div><p class="belief-title">You don't need more options — you need the right ones</p><p class="belief-desc">I send clients three or four carefully matched properties, not forty. Decision fatigue is real.</p></div></div>
+    <div class="belief-card"><div class="belief-num">3</div><div><p class="belief-title">Clarity removes fear</p><p class="belief-desc">Clear, honest information — even when it's not what you hoped to hear — is always more useful than reassurance.</p></div></div>
+    <div class="belief-card"><div class="belief-num">4</div><div><p class="belief-title">There is no "best" property — only what's right for your life</p><p class="belief-desc">I'm not here to sell the most expensive property. I'm here to find the most fitting one.</p></div></div>
+    <div class="belief-card" style="margin-bottom:20px"><div class="belief-num">5</div><div><p class="belief-title">Relocating is a life decision, not a property transaction</p><p class="belief-desc">You're choosing a school run, a weekend pace, a community. I treat the decision with the weight it deserves.</p></div></div>
+    <div class="green-box"><p class="gb-label">Brand promise</p><p class="gb-text">"Clarity in every step. Confidence in every decision."</p></div>
+  </div>
+  <div class="section">
+    <p class="section-label">Track record</p>
+    <h2 style="margin-bottom:20px">Families who've made <em>the move.</em></h2>
+    <div class="about-stats"><div class="about-stat"><p class="about-stat-v">60+</p><p class="about-stat-k">Families relocated</p></div><div class="about-stat"><p class="about-stat-v">7 yrs</p><p class="about-stat-k">Living in Phuket</p></div><div class="about-stat"><p class="about-stat-v">6</p><p class="about-stat-k">Areas covered</p></div><div class="about-stat"><p class="about-stat-v">4.6★</p><p class="about-stat-k">Average rating</p></div></div>
+    <div class="quote-card"><p class="quote-text">"Annie didn't show us a single property until she understood how we wanted to live. That felt completely different from every other agent we'd spoken to."</p><p class="quote-attr">— James & Claire, relocated from London · 2023</p></div>
+    <div class="quote-card"><p class="quote-text">"We were overwhelmed by everything we'd read online. One conversation with Annie gave us more clarity than six months of research."</p><p class="quote-attr">— Sarah & Tom, relocated from Melbourne · 2024</p></div>
+  </div>
+  <div class="section tinted">
+    <p class="section-label">How I'm different</p>
+    <h2 style="margin-bottom:20px">What Phuket Living <em>is not.</em></h2>
+    <div class="diff-row"><div class="diff-dot"></div><p class="diff-text"><strong>Not a listing aggregator.</strong> I don't publish everything available. I publish what I'd actually recommend — and only after understanding your situation.</p></div>
+    <div class="diff-row"><div class="diff-dot"></div><p class="diff-text"><strong>Not commission-driven in the traditional sense.</strong> My incentive is a client who settles well and refers others — not a fast close on the highest-value property.</p></div>
+    <div class="diff-row"><div class="diff-dot"></div><p class="diff-text"><strong>Not a remote service.</strong> I accompany every viewing in person. There are no virtual tours dressed up as local expertise.</p></div>
+    <div class="diff-row" style="margin-bottom:0"><div class="diff-dot"></div><p class="diff-text"><strong>Not one-size-fits-all.</strong> A retired couple from Germany and a remote-working family from Sydney have almost nothing in common when it comes to the right area.</p></div>
+  </div>
+  <div class="footer-cta"><h2>Ready to have a real conversation<br>about your move?</h2><p>No pressure. No pitch. Just an honest conversation.</p><button class="btn-light" onclick="showPage('contact')">Get in touch →</button><button class="btn-ghost" onclick="showPage('areas')">Explore areas first</button></div>
+</div>
+
+<!-- ====== RESOURCES ====== -->
+<div id="resources" class="page">
+  <div class="hero" style="text-align:left;padding:40px 32px 32px">
+    <p class="eyebrow">Relocation resources</p>
+    <h1 style="font-size:28px">Everything you need to<br>understand before you <em>decide.</em></h1>
+    <p class="sub" style="margin:0">Practical, honest guides written from real experience living in Phuket. No fluff — just information that helps families make confident decisions.</p>
+  </div>
+  <div class="section">
+    <p class="section-label">Guides</p>
+    <h2>The big questions,<br><em>answered plainly.</em></h2>
+    <p class="sec-sub">Filter by topic to find what you need.</p>
+    <div class="filter-row" id="guide-filters"><button class="fpill active" onclick="filterGuides(this,'all')">All topics</button><button class="fpill" onclick="filterGuides(this,'legal')">Legal &amp; ownership</button><button class="fpill" onclick="filterGuides(this,'school')">Schooling</button><button class="fpill" onclick="filterGuides(this,'cost')">Cost of living</button><button class="fpill" onclick="filterGuides(this,'visa')">Visas</button><button class="fpill" onclick="filterGuides(this,'health')">Healthcare</button><button class="fpill" onclick="filterGuides(this,'life')">Lifestyle</button></div>
+    <div id="guides">
+      <div class="guide-card featured" data-gcat="legal"><div class="guide-icon" style="background:#E1F5EE"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="2" width="12" height="12" rx="2" stroke="#085041" stroke-width="1.2"/><path d="M5 8h6M5 5.5h6M5 10.5h4" stroke="#085041" stroke-width="1.2" stroke-linecap="round"/></svg></div><div style="flex:1"><span class="featured-badge">Start here</span><p class="guide-cat">Legal &amp; ownership</p><p class="guide-title">Can foreigners own property in Thailand? The honest answer.</p><p class="guide-desc">Freehold vs leasehold, company structures, what's actually possible — and what to watch out for.</p><p class="guide-meta">8 min read · Updated 2024</p></div></div>
+      <div class="guide-card" data-gcat="school"><div class="guide-icon" style="background:#EEEDFE"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2L2 5.5V7h12V5.5L8 2z" stroke="#3C3489" stroke-width="1.2" stroke-linejoin="round"/><rect x="4" y="7" width="2" height="5" stroke="#3C3489" stroke-width="1.2"/><rect x="10" y="7" width="2" height="5" stroke="#3C3489" stroke-width="1.2"/><path d="M2 12h12" stroke="#3C3489" stroke-width="1.2" stroke-linecap="round"/></svg></div><div style="flex:1"><p class="guide-cat" style="color:#3C3489">Schooling</p><p class="guide-title">International schools in Phuket — which is right for your family?</p><p class="guide-desc">British, IB, American curricula — what's available, fees to expect, and how to choose.</p><p class="guide-meta">10 min read · Updated 2024</p></div></div>
+      <div class="guide-card" data-gcat="cost"><div class="guide-icon" style="background:#FAEEDA"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="#633806" stroke-width="1.2"/><path d="M8 5v1.5M8 9.5V11" stroke="#633806" stroke-width="1.2" stroke-linecap="round"/></svg></div><div style="flex:1"><p class="guide-cat" style="color:#633806">Cost of living</p><p class="guide-title">What does it actually cost to live in Phuket? A realistic breakdown.</p><p class="guide-desc">Real numbers for a family of four — not the optimistic estimates you'll find elsewhere.</p><p class="guide-meta">7 min read · Updated 2024</p></div></div>
+      <div class="guide-card" data-gcat="visa"><div class="guide-icon" style="background:#FAECE7"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="3" width="12" height="10" rx="1.5" stroke="#712B13" stroke-width="1.2"/><path d="M5 7h2M5 9.5h6M9 7h2" stroke="#712B13" stroke-width="1.2" stroke-linecap="round"/></svg></div><div style="flex:1"><p class="guide-cat" style="color:#712B13">Visas</p><p class="guide-title">Thailand visa options for expats — which one fits your situation?</p><p class="guide-desc">Elite visa, LTR, retirement visa, DTV — what each offers, who qualifies, and common mistakes.</p><p class="guide-meta">9 min read · Updated 2024</p></div></div>
+      <div class="guide-card" data-gcat="health"><div class="guide-icon" style="background:#FBEAF0"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2C5.24 2 3 4.24 3 7c0 3.5 5 9 5 9s5-5.5 5-9c0-2.76-2.24-5-5-5z" stroke="#72243E" stroke-width="1.2"/></svg></div><div style="flex:1"><p class="guide-cat" style="color:#72243E">Healthcare</p><p class="guide-title">Healthcare in Phuket — what expat families need to know.</p><p class="guide-desc">Which hospitals are worth using, how insurance works, and how to navigate the system.</p><p class="guide-meta">8 min read · Updated 2024</p></div></div>
+      <div class="guide-card" data-gcat="legal"><div class="guide-icon" style="background:#E1F5EE"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="2" width="12" height="12" rx="2" stroke="#085041" stroke-width="1.2"/><path d="M5 8h6M5 5.5h6M5 10.5h4" stroke="#085041" stroke-width="1.2" stroke-linecap="round"/></svg></div><div style="flex:1"><p class="guide-cat">Legal &amp; ownership</p><p class="guide-title">Renting vs buying in Phuket — what makes sense for your situation?</p><p class="guide-desc">Most expats should rent first. Here's why — and when buying earlier actually makes sense.</p><p class="guide-meta">6 min read · Updated 2024</p></div></div>
+      <div class="guide-card" data-gcat="life"><div class="guide-icon" style="background:#EAF3DE"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="5" r="2.5" stroke="#27500A" stroke-width="1.2"/><path d="M3 13c0-2.76 2.24-5 5-5s5 2.24 5 5" stroke="#27500A" stroke-width="1.2" stroke-linecap="round"/></svg></div><div style="flex:1"><p class="guide-cat" style="color:#27500A">Lifestyle</p><p class="guide-title">What daily life in Phuket actually looks like for expat families.</p><p class="guide-desc">School runs, grocery shopping, making friends — the unglamorous, genuinely useful side.</p><p class="guide-meta">11 min read · Updated 2024</p></div></div>
+      <div class="guide-card" data-gcat="school"><div class="guide-icon" style="background:#EEEDFE"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2L2 5.5V7h12V5.5L8 2z" stroke="#3C3489" stroke-width="1.2" stroke-linejoin="round"/><rect x="4" y="7" width="2" height="5" stroke="#3C3489" stroke-width="1.2"/><rect x="10" y="7" width="2" height="5" stroke="#3C3489" stroke-width="1.2"/><path d="M2 12h12" stroke="#3C3489" stroke-width="1.2" stroke-linecap="round"/></svg></div><div style="flex:1"><p class="guide-cat" style="color:#3C3489">Schooling</p><p class="guide-title">Relocating to Phuket with young children — what to plan first.</p><p class="guide-desc">Enrollment timelines, waiting lists, childcare options, and how to sequence the move.</p><p class="guide-meta">7 min read · Updated 2024</p></div></div>
+    </div>
+  </div>
+  <div class="section tinted">
+    <p class="section-label">Quick answers</p>
+    <h2 style="margin-bottom:20px">Questions Annie gets<br>asked <em>every week.</em></h2>
+    <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q"><p class="faq-q-text">Is Phuket safe for families with young children?</p><span class="faq-toggle">+</span></div><p class="faq-a">Yes — Phuket is generally very safe for families. Road safety is the most relevant concern. Most expat families with young kids drive cars rather than scooters. Neighbourhoods like Bangtao and Cherngtalay are quiet and low-risk day-to-day.</p></div>
+    <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q"><p class="faq-q-text">Do I need to speak Thai to live comfortably in Phuket?</p><span class="faq-toggle">+</span></div><p class="faq-a">No. English is widely spoken in the areas where most expats live — in shops, restaurants, hospitals, and most services you'll use day-to-day.</p></div>
+    <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q"><p class="faq-q-text">How far in advance should I start planning the move?</p><span class="faq-toggle">+</span></div><p class="faq-a">For families with school-age children, 6–12 months is ideal — school enrollment and waiting lists require lead time. For couples without children or retirees, 3–6 months is usually enough.</p></div>
+    <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q"><p class="faq-q-text">Should I rent first before deciding where to buy?</p><span class="faq-toggle">+</span></div><p class="faq-a">Almost always, yes. Renting for 6–12 months lets you experience an area through different seasons, understand your actual routine, and make a much more informed purchase decision.</p></div>
+    <div class="faq-item" onclick="toggleFaq(this)" style="border-bottom:none"><div class="faq-q"><p class="faq-q-text">What's the best time of year to visit before relocating?</p><span class="faq-toggle">+</span></div><p class="faq-a">November to April is peak season — dry, sunny, and the easiest time to experience Phuket at its best. If you want to test how you handle the low season, come in August or September during the monsoon.</p></div>
+  </div>
+  <div class="footer-cta"><h2>Still have questions the guides don't answer?</h2><p>Ask Annie directly. She's lived in Phuket since 2017.</p><button class="btn-light" onclick="showPage('contact')">Get in touch →</button></div>
+</div>
+
+<!-- ====== CONTACT ====== -->
+<div id="contact" class="page">
+  <div class="hero" style="text-align:left;padding:40px 32px 32px;background:var(--surface2)">
+    <p class="eyebrow">Get in touch</p>
+    <h1 style="font-size:28px">Let's start with<br>how you want to <em>live.</em></h1>
+    <p class="sub" style="margin:0">No pitch, no pressure. Just an honest conversation about your move — and whether Phuket is the right fit.</p>
+  </div>
+  <div id="form-view">
+    <div class="contact-wrap">
+      <div class="form-card">
+        <div class="field-group">
+          <div class="field-wrap"><label class="field-label">Your name</label><input type="text" placeholder="e.g. Sarah Johnson" id="f-name"></div>
+          <div class="field-wrap"><label class="field-label">Email address</label><input type="email" placeholder="you@example.com" id="f-email"></div>
+        </div>
+        <div class="field-wrap"><label class="field-label">Where are you relocating from?</label><input type="text" placeholder="e.g. Melbourne, Australia"></div>
+        <div class="field-wrap"><label class="field-label">Family situation</label><div class="chip-row"><span class="chip" onclick="chipSel(this,'fam')">Couple, no kids</span><span class="chip" onclick="chipSel(this,'fam')">Family with young kids</span><span class="chip" onclick="chipSel(this,'fam')">Family with teens</span><span class="chip" onclick="chipSel(this,'fam')">Retiring couple</span><span class="chip" onclick="chipSel(this,'fam')">Solo</span></div></div>
+        <div class="field-wrap"><label class="field-label">What matters most to you?</label><div class="chip-row"><span class="chip" onclick="this.classList.toggle('sel')">Schools &amp; family routine</span><span class="chip" onclick="this.classList.toggle('sel')">Peace and quiet</span><span class="chip" onclick="this.classList.toggle('sel')">Remote work setup</span><span class="chip" onclick="this.classList.toggle('sel')">Healthcare access</span><span class="chip" onclick="this.classList.toggle('sel')">Expat community</span><span class="chip" onclick="this.classList.toggle('sel')">Beach proximity</span></div><p class="field-hint">Select all that apply</p></div>
+        <div class="field-wrap"><label class="field-label">Rough monthly budget</label><select><option value="">Select a range</option><option>Under ฿30,000</option><option>฿30,000 – 50,000</option><option>฿50,000 – 80,000</option><option>฿80,000 – 120,000</option><option>฿120,000+</option><option>Not sure yet</option></select></div>
+        <div class="field-wrap"><label class="field-label">When are you planning to move?</label><div class="chip-row"><span class="chip" onclick="chipSel(this,'time')">Within 3 months</span><span class="chip" onclick="chipSel(this,'time')">3–6 months</span><span class="chip" onclick="chipSel(this,'time')">6–12 months</span><span class="chip" onclick="chipSel(this,'time')">Just exploring</span></div></div>
+        <div class="field-wrap" style="margin-bottom:20px"><label class="field-label">Anything else Annie should know?</label><textarea placeholder="Areas you've been considering, schools, questions — anything helps."></textarea><p class="field-hint">Optional, but the more context you share, the more useful the first conversation will be.</p></div>
+        <button class="submit-btn" onclick="submitForm()">Send message to Annie</button>
+        <p class="reassure">No spam. No follow-up pitch. Annie typically replies within 24 hours.</p>
+      </div>
+      <div>
+        <p class="sidebar-label">What happens next</p>
+        <div class="expect-row"><div class="expect-num">1</div><div><p class="expect-title">Annie reads your message personally</p><p class="expect-desc">Not a CRM autoresponder. She reads every inquiry herself and replies within 24 hours.</p></div></div>
+        <div class="expect-row"><div class="expect-num">2</div><div><p class="expect-title">A short conversation about your situation</p><p class="expect-desc">Via WhatsApp, email, or a short call — whichever you prefer. No commitment required.</p></div></div>
+        <div class="expect-row"><div class="expect-num">3</div><div><p class="expect-title">Area and property recommendations</p><p class="expect-desc">Based on what you've shared, Annie will suggest the areas and homes that actually fit.</p></div></div>
+        <div class="expect-row" style="margin-bottom:0"><div class="expect-num">4</div><div><p class="expect-title">Viewings — when you're ready</p><p class="expect-desc">No pressure to move fast. Annie accompanies every viewing in person.</p></div></div>
+        <div class="annie-card"><div class="annie-av">A</div><div><p class="annie-quote">"I reply to every message myself. Tell me as much or as little as you like — there's no wrong way to start."</p><p class="annie-name">— Annie, founder</p></div></div>
+        <div class="contact-direct"><p>Prefer to reach out directly?</p><p class="dc">WhatsApp: <span>+66 XX XXX XXXX</span></p><p class="dc">Instagram: <span class="handle">@phuketliving</span></p></div>
+      </div>
+    </div>
+  </div>
+  <div class="success-wrap" id="success-view">
+    <div class="success-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#1D9E75" stroke-width="1.5"/><path d="M7.5 12l3.5 3.5 6-7" stroke="#1D9E75" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <h2 class="success-h">Message sent.<br><em>Annie will be in touch.</em></h2>
+    <p class="success-sub">She reads every inquiry personally and typically replies within 24 hours — often sooner. No automated responses, no sales pitch.</p>
+    <div class="success-detail"><p><strong>What to expect:</strong></p><p>A personal reply from Annie via email or WhatsApp, with a few follow-up questions about your situation — so she can point you in the right direction from the very first conversation.</p></div>
+    <div class="success-btns"><button class="success-cta" onclick="showPage('areas')">Explore areas while you wait →</button><button class="success-back" onclick="resetForm()">Send another message</button></div>
+  </div>
+</div>
+
+<script>
+// Page navigation
+function showPage(id, tabEl) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.page-tab').forEach(t => t.classList.remove('active'));
+  const page = document.getElementById(id);
+  if (page) page.classList.add('active');
+  if (tabEl) tabEl.classList.add('active');
+  else {
+    const map = {home:0,areas:1,'area-guide':2,properties:3,about:4,resources:5,contact:6};
+    const tabs = document.querySelectorAll('.page-tab');
+    if (map[id] !== undefined && tabs[map[id]]) tabs[map[id]].classList.add('active');
+  }
+  window.scrollTo(0,0);
+}
+
+// Shortlist logic
+const counts = {home:0, guide:0, props:0};
+function toggleSL(btn, group, e) {
+  e.stopPropagation();
+  btn.classList.toggle('added');
+  counts[group] += btn.classList.contains('added') ? 1 : -1;
+  btn.textContent = btn.classList.contains('added') ? '✓' : '+';
+  const n = counts[group];
+  document.getElementById('sl-count-'+group).textContent = n + (n===1?' property':' properties')+' selected';
+  document.getElementById('sl-btn-'+group).disabled = n === 0;
+}
+
+// Property filters
+function filterProps(btn, area) {
+  document.querySelectorAll('#prop-filters .fpill').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('#props-grid .card').forEach(c => {
+    c.style.display = (area==='all'||c.dataset.area===area) ? '' : 'none';
+  });
+}
+
+// Guide filters
+function filterGuides(btn, cat) {
+  document.querySelectorAll('#guide-filters .fpill').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('#guides .guide-card').forEach(c => {
+    c.style.display = (cat==='all'||c.dataset.gcat===cat) ? '' : 'none';
+  });
+}
+
+// FAQ
+function toggleFaq(item) {
+  const a = item.querySelector('.faq-a');
+  const t = item.querySelector('.faq-toggle');
+  a.classList.toggle('open');
+  t.classList.toggle('open');
+}
+
+// Matcher
+const mAnswers = {};
+const mResults = {
+  schools_busy:{a:'Bangtao',w:'Strong school options, beach clubs, and a structured expat community — suits families who want life to feel organised.'},
+  schools_mid:{a:'Bangtao',w:'Close to schools and active enough to keep the family busy, while not feeling overwhelming.'},
+  schools_slow:{a:'Cherngtalay',w:'Good school access with a slightly calmer pace than Bangtao — a solid middle ground.'},
+  quiet_busy:{a:'Rawai',w:'Quiet streets and a local feel, but Kata and Karon are close for when you want activity.'},
+  quiet_mid:{a:'Rawai',w:'The sweet spot — peaceful enough to unwind, with enough nearby to keep life interesting.'},
+  quiet_slow:{a:'Nai Harn',w:'Hillside privacy, scenic walks, and very little tourist noise. Ideal if peace is the priority.'},
+  remote_busy:{a:'Cherngtalay',w:'Fast connectivity, coworking options, and a buzzing Laguna area — built for productive remote workers.'},
+  remote_mid:{a:'Cherngtalay',w:'Good infrastructure with a balanced feel. You can switch off in the evening without going off-grid.'},
+  remote_slow:{a:'Rawai',w:'Slower pace with solid enough internet for remote work, and a community that values the same balance.'},
+  retire_busy:{a:'Bangtao',w:'Healthcare, restaurants, and a large expat community keep life social and convenient.'},
+  retire_mid:{a:'Rawai',w:'Comfortable pace, good healthcare access, and a genuine local feel without being isolated.'},
+  retire_slow:{a:'Nai Harn',w:'Private, scenic, and very calm. The ideal spot for a relaxed retirement chapter.'},
+};
+function mpick(qid, btn, val) {
+  document.querySelectorAll('#'+qid+' .opt-btn').forEach(b => b.classList.remove('sel'));
+  btn.classList.add('sel');
+  mAnswers[qid] = val;
+  if (mAnswers.mq1 && mAnswers.mq2) {
+    const r = mResults[mAnswers.mq1+'_'+mAnswers.mq2] || {a:'Bangtao',w:'Based on your answers, Bangtao is a strong starting point.'};
+    document.getElementById('m-area').textContent = r.a;
+    document.getElementById('m-why').textContent = r.w;
+    document.getElementById('matcher-result').style.display = 'block';
+  }
+}
+
+// Chips
+function chipSel(el, group) {
+  document.querySelectorAll('.chip[onclick*="chipSel"][onclick*="\''+group+'\'"]').forEach(c => c.classList.remove('sel'));
+  el.classList.add('sel');
+}
+
+// Contact form
+function submitForm() {
+  const name = document.getElementById('f-name').value.trim();
+  const email = document.getElementById('f-email').value.trim();
+  document.getElementById('f-name').style.borderColor = name ? '' : '#E24B4A';
+  document.getElementById('f-email').style.borderColor = email ? '' : '#E24B4A';
+  if (!name || !email) return;
+  document.getElementById('form-view').style.display = 'none';
+  document.getElementById('success-view').style.display = 'block';
+}
+function resetForm() {
+  document.getElementById('form-view').style.display = 'block';
+  document.getElementById('success-view').style.display = 'none';
+}
+</script>
+</body>
+</html>
