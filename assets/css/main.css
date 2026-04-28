@@ -382,7 +382,7 @@ em, .it { font-style: italic; font-family: var(--serif); }
 }
 .compare-table th,
 .compare-table td {
-  padding: 18px 22px;
+  padding: 16px 16px;
   text-align: left;
   border-bottom: 1px solid var(--line);
   vertical-align: middle;
@@ -403,14 +403,16 @@ em, .it { font-style: italic; font-family: var(--serif); }
 }
 .compare-table tbody td.label {
   font-family: var(--sans);
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 500;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--ink-muted);
   background: var(--sand);
-  width: 22%;
+  width: 14%;
+  white-space: nowrap;
 }
+.compare-table .area-h { font-size: 18px; }
 .compare-table tbody td.good { color: var(--olive); font-weight: 500; }
 .compare-table tbody td.mid  { color: var(--ochre-dark); }
 .compare-table tbody tr:last-child td { border-bottom: none; }
@@ -674,6 +676,8 @@ em, .it { font-style: italic; font-family: var(--serif); }
 .area-card.tone-sand  .media { background-color: #D9D0BE; }
 .area-card.tone-brown .media { background-color: var(--brown); }
 .area-card.tone-clay  .media { background-color: var(--clay); }
+.area-card.tone-olive .media { background-color: var(--olive); }
+.area-card.tone-ochre .media { background-color: var(--ochre); }
 .area-card .media .label {
   position: absolute;
   bottom: 14px; left: 14px;
