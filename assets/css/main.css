@@ -446,6 +446,233 @@ em, .it { font-style: italic; font-family: var(--serif); }
   .compare-table th, .compare-table td { padding: 14px 14px; font-size: 13px; }
   .compare-table .area-h { font-size: 18px; }
 }
+
+/* --- Breadcrumb ----------------------------------------- */
+.breadcrumb {
+  padding: 22px 0 18px;
+  background: var(--paper);
+  border-bottom: 1px solid var(--line);
+}
+.breadcrumb-text {
+  font-family: var(--sans);
+  font-size: 13px;
+  color: var(--ink-muted);
+  letter-spacing: 0.01em;
+}
+.breadcrumb-text a {
+  color: var(--olive);
+  transition: color .15s;
+}
+.breadcrumb-text a:hover { color: var(--ink); }
+.breadcrumb-text .sep { margin: 0 10px; opacity: 0.5; }
+.breadcrumb-text .here { color: var(--ink); }
+
+/* --- Guide hero ----------------------------------------- */
+.guide-hero {
+  padding: 72px 0 80px;
+  background: var(--paper);
+}
+.guide-hero .eyebrow { color: var(--olive); margin-bottom: 22px; display: inline-block; }
+.guide-hero h1 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(48px, 7vw, 88px);
+  line-height: 1.0;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  max-width: 16ch;
+  margin-bottom: 28px;
+}
+.guide-hero h1 em { font-style: italic; }
+.guide-hero .sub {
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--ink-2);
+  max-width: 60ch;
+  margin-bottom: 36px;
+}
+
+/* --- Verdict bar (Annie's honest take) ------------------ */
+.verdict-bar {
+  background: var(--sand);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--olive);
+  border-radius: var(--r-md);
+  padding: 22px 28px 24px;
+  max-width: 640px;
+}
+.verdict-label {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: var(--track-eyebrow);
+  text-transform: uppercase;
+  color: var(--olive);
+  margin-bottom: 8px;
+}
+.verdict-text {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 19px;
+  line-height: 1.45;
+  letter-spacing: -0.005em;
+  color: var(--ink);
+}
+
+/* --- Facts grid (at-a-glance) --------------------------- */
+.facts-grid-6 {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 16px;
+}
+.fact-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  padding: 26px 22px;
+}
+.fact-card .v {
+  font-family: var(--serif);
+  font-size: 28px;
+  font-weight: 400;
+  letter-spacing: -0.015em;
+  line-height: 1.1;
+  color: var(--ink);
+  margin-bottom: 10px;
+}
+.fact-card .k {
+  font-size: 12px;
+  color: var(--ink-muted);
+  letter-spacing: 0.03em;
+  line-height: 1.4;
+}
+
+/* --- Life rows ------------------------------------------ */
+.life-list { display: grid; }
+.life-row {
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  gap: 28px;
+  padding: 32px 0;
+  border-bottom: 1px solid var(--line);
+  align-items: flex-start;
+}
+.life-row:first-child { padding-top: 0; }
+.life-row:last-child { border-bottom: none; }
+.life-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--r-md);
+  background: var(--olive-soft);
+  color: var(--olive);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.life-title {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+.life-desc {
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--ink-2);
+  max-width: 64ch;
+}
+
+/* --- Honest cards (pros / cons) ------------------------- */
+.honest-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+.honest-card {
+  border-radius: var(--r-lg);
+  padding: 32px 32px 28px;
+  border: 1px solid var(--line);
+}
+.honest-card.pro {
+  background: var(--olive-soft);
+  border-color: rgba(74, 83, 64, 0.20);
+}
+.honest-card.con {
+  background: rgba(201, 149, 75, 0.10);
+  border-color: rgba(201, 149, 75, 0.30);
+}
+.honest-title {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: var(--track-eyebrow);
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+.honest-card.pro .honest-title { color: var(--olive); }
+.honest-card.con .honest-title { color: var(--ochre-dark); }
+.honest-list {
+  list-style: none;
+  display: grid;
+  gap: 12px;
+}
+.honest-list li {
+  position: relative;
+  padding-left: 24px;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--ink);
+}
+.honest-list li::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 11px;
+  width: 14px; height: 1px;
+  background: var(--ink-muted);
+}
+
+/* --- Area pills (other-areas nav) ----------------------- */
+.area-pills {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.area-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 46px;
+  padding: 0 24px;
+  border-radius: var(--r-pill);
+  border: 1px solid var(--line);
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 14px;
+  font-family: var(--sans);
+  transition: all .15s;
+}
+.area-pill:hover {
+  border-color: var(--ink);
+  background: var(--ink);
+  color: var(--paper);
+}
+
+@media (max-width: 1024px) {
+  .facts-grid-6 { grid-template-columns: repeat(3, 1fr); }
+  .honest-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 720px) {
+  .guide-hero { padding: 56px 0 64px; }
+  .facts-grid-6 { grid-template-columns: repeat(2, 1fr); }
+  .fact-card .v { font-size: 22px; }
+  .life-row { grid-template-columns: 1fr; gap: 14px; padding: 24px 0; }
+  .life-icon { width: 44px; height: 44px; }
+  .verdict-bar { padding: 18px 22px; }
+  .verdict-text { font-size: 17px; }
+  .honest-card { padding: 24px 22px; }
+}
 .hero .eyebrow { margin-bottom: 24px; color: var(--olive); }
 .hero h1 {
   font-family: var(--serif);
