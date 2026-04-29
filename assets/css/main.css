@@ -1468,29 +1468,100 @@ em, .it { font-style: italic; font-family: var(--serif); }
   gap: 32px;
 }
 .quote-card {
-  background: var(--sand);
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+  background: var(--paper);
+  border: 1px solid var(--line);
   border-radius: var(--r-lg);
-  padding: 36px 36px 32px;
+  overflow: hidden;
+  transition: border-color .2s ease, transform .25s ease;
+}
+.quote-card:hover { border-color: var(--ink-muted); transform: translateY(-2px); }
+.quote-card .photo {
+  background-color: var(--sand);
+  background-size: cover;
+  background-position: center;
+  min-height: 100%;
+  position: relative;
+}
+.quote-card .photo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(31,28,23,0) 60%, rgba(31,28,23,0.25) 100%);
+}
+.quote-card .body {
+  padding: 32px 32px 28px;
+  display: flex;
+  flex-direction: column;
 }
 .quote-card .qmark {
   font-family: var(--serif);
+  font-style: italic;
   font-size: 56px;
-  line-height: 0.6;
+  line-height: 0.5;
   color: var(--olive);
-  margin-bottom: 8px;
+  margin-bottom: 14px;
 }
 .quote-card .text {
   font-family: var(--serif);
-  font-size: 22px;
+  font-style: italic;
+  font-size: 19px;
   line-height: 1.4;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.005em;
   color: var(--ink);
-  margin-bottom: 24px;
+  margin-bottom: 26px;
+  flex: 1;
 }
-.quote-card .attr {
-  font-size: 13px;
+.quote-card .author {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-top: 22px;
+  border-top: 1px solid var(--line);
+}
+.quote-card .avatar {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: var(--olive-soft);
+  border: 1px solid rgba(74, 83, 64, 0.18);
+  color: var(--olive);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  flex-shrink: 0;
+}
+.quote-card .meta .name {
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 3px;
+  letter-spacing: -0.005em;
+}
+.quote-card .meta .loc {
+  font-family: var(--sans);
+  font-size: 12px;
   color: var(--ink-muted);
   letter-spacing: 0.02em;
+}
+
+@media (max-width: 1024px) {
+  .quote-grid { grid-template-columns: 1fr; }
+  .quote-card { grid-template-columns: 4fr 6fr; }
+  .quote-card .photo { min-height: 240px; }
+}
+@media (max-width: 720px) {
+  .quote-card { grid-template-columns: 1fr; }
+  .quote-card .photo { aspect-ratio: 4 / 3; min-height: 0; }
+  .quote-card .body { padding: 24px 22px; }
+  .quote-card .text { font-size: 17px; margin-bottom: 18px; }
 }
 
 /* --- Shortlist bar -------------------------------------- */
