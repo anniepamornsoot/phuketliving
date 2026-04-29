@@ -52,7 +52,19 @@
 <section class="section paper" style="padding-top: 56px;">
   <div class="wrap">
 
-    <div class="filters">
+    <div class="filter-bar">
+      <div class="filter-bar-head">
+        <div class="text">
+          <span class="eyebrow">Narrow the list</span>
+          <h3>What are you <em>looking for?</em></h3>
+          <p class="sub">Tap a pill in each row to focus the list. You can combine area and status — for example, "Rawai" + "Long-let" shows only long-term rentals in Rawai.</p>
+        </div>
+        <div class="count-pill">
+          <strong id="result-count">9</strong>
+          <span>of 9 shown</span>
+        </div>
+      </div>
+
       <div class="filter-group" id="area-filters">
         <span class="filter-label">Area</span>
         <div class="filter-pills">
@@ -74,11 +86,11 @@
           <button class="fpill" data-filter="type" data-v="for-sale">For sale</button>
         </div>
       </div>
-    </div>
 
-    <div class="results-meta">
-      <p class="count"><strong id="result-count">9</strong> properties · curated this month</p>
-      <span class="sort">Sorted by Annie's recommendation</span>
+      <div class="filter-foot">
+        <span class="helper">Curated monthly · sorted by Annie's recommendation</span>
+        <button class="reset-btn" id="reset-btn" disabled>Reset filters <span aria-hidden="true">↻</span></button>
+      </div>
     </div>
 
     <div class="cards-grid" id="props-grid">
@@ -271,12 +283,12 @@
 </footer>
 
 <script>
-  // Filter logic
   const state = { area: 'all', type: 'all' };
   const grid = document.getElementById('props-grid');
   const cards = grid.querySelectorAll('.prop-card');
   const countEl = document.getElementById('result-count');
   const emptyEl = document.getElementById('empty-state');
+  const resetBtn = document.getElementById('reset-btn');
 
   function applyFilters() {
     let visible = 0;
@@ -295,6 +307,8 @@
       emptyEl.classList.remove('show');
       grid.style.display = '';
     }
+    const filtered = state.area !== 'all' || state.type !== 'all';
+    resetBtn.disabled = !filtered;
   }
 
   document.querySelectorAll('.fpill').forEach(btn => {
@@ -306,6 +320,14 @@
       state[f] = v;
       applyFilters();
     });
+  });
+
+  resetBtn.addEventListener('click', () => {
+    state.area = 'all';
+    state.type = 'all';
+    document.querySelectorAll('.fpill').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.fpill[data-v="all"]').forEach(b => b.classList.add('active'));
+    applyFilters();
   });
 </script>
 
