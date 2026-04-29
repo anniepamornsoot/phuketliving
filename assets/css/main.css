@@ -673,6 +673,102 @@ em, .it { font-style: italic; font-family: var(--serif); }
   .verdict-text { font-size: 17px; }
   .honest-card { padding: 24px 22px; }
 }
+
+/* --- Filters (Properties page) -------------------------- */
+.filters {
+  padding: 28px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 48px;
+}
+.filter-group {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+.filter-group:last-child { margin-bottom: 0; }
+.filter-label {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: var(--track-eyebrow);
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  min-width: 78px;
+}
+.filter-pills {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.fpill {
+  display: inline-flex;
+  align-items: center;
+  height: 38px;
+  padding: 0 18px;
+  border-radius: var(--r-pill);
+  border: 1px solid var(--line);
+  background: var(--paper);
+  font-family: var(--sans);
+  font-size: 13px;
+  color: var(--ink-2);
+  cursor: pointer;
+  transition: all .15s;
+}
+.fpill:hover { border-color: var(--ink-muted); color: var(--ink); }
+.fpill.active {
+  background: var(--ink);
+  color: var(--paper);
+  border-color: var(--ink);
+}
+
+.results-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.results-meta .count {
+  font-family: var(--sans);
+  font-size: 13px;
+  color: var(--ink-muted);
+}
+.results-meta .count strong { color: var(--ink); font-weight: 500; }
+.results-meta .sort {
+  font-size: 13px;
+  color: var(--ink-muted);
+}
+
+.empty-state {
+  padding: 80px 24px;
+  text-align: center;
+  background: var(--sand);
+  border-radius: var(--r-lg);
+  display: none;
+}
+.empty-state.show { display: block; }
+.empty-state h3 {
+  font-family: var(--serif);
+  font-size: 28px;
+  font-style: italic;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+.empty-state p {
+  font-size: 15px;
+  color: var(--ink-2);
+  max-width: 44ch;
+  margin: 0 auto;
+}
+
+@media (max-width: 720px) {
+  .filter-group { gap: 10px; }
+  .filter-label { min-width: 0; width: 100%; margin-bottom: 4px; }
+}
 .hero .eyebrow { margin-bottom: 24px; color: var(--olive); }
 .hero h1 {
   font-family: var(--serif);

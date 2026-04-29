@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Properties — Phuket Living</title>
+<meta name="description" content="A small, curated set of homes in Phuket — long-let and for sale. Not every listing on the island. Only the ones we'd actually recommend.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400;1,500&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+
+<!-- =========================================================
+     NAV
+     ========================================================= -->
+<header class="site-nav">
+  <div class="wrap row">
+    <a href="index.html" class="wordmark" aria-label="Phuket Living — home">
+      <span class="ph">Phuket</span><span>Living</span>
+    </a>
+    <nav class="links" aria-label="Primary">
+      <a href="areas.html">Areas</a>
+      <a href="properties.html" class="active">Properties</a>
+      <a href="about.html">About</a>
+      <a href="resources.html">Resources</a>
+    </nav>
+    <a href="contact.html" class="btn btn-primary btn-sm">Book a call <span class="arrow">↗</span></a>
+    <button class="nav-toggle" aria-label="Open menu">
+      <svg width="18" height="14" viewBox="0 0 18 14" fill="none"><path d="M1 1h16M1 7h16M1 13h16" stroke="#1F1C17" stroke-width="1.4" stroke-linecap="round"/></svg>
+    </button>
+  </div>
+</header>
+
+<!-- =========================================================
+     HERO
+     ========================================================= -->
+<section class="hero-sub">
+  <div class="wrap">
+    <span class="eyebrow">Curated listings</span>
+    <h1>Homes we'd <em>actually</em> recommend right now.</h1>
+    <p class="sub">A small, deliberately curated set — long-lets and homes for sale across the six neighbourhoods we know best. We update it monthly and only include properties we'd be happy to walk into ourselves. Not a full catalogue of Phuket. The ones worth your time.</p>
+  </div>
+</section>
+
+<!-- =========================================================
+     FILTERS + GRID
+     ========================================================= -->
+<section class="section paper" style="padding-top: 56px;">
+  <div class="wrap">
+
+    <div class="filters">
+      <div class="filter-group" id="area-filters">
+        <span class="filter-label">Area</span>
+        <div class="filter-pills">
+          <button class="fpill active" data-filter="area" data-v="all">All areas</button>
+          <button class="fpill" data-filter="area" data-v="Bangtao">Bangtao</button>
+          <button class="fpill" data-filter="area" data-v="Rawai">Rawai</button>
+          <button class="fpill" data-filter="area" data-v="Cherngtalay">Cherngtalay</button>
+          <button class="fpill" data-filter="area" data-v="Nai Harn">Nai Harn</button>
+          <button class="fpill" data-filter="area" data-v="Kathu">Kathu</button>
+          <button class="fpill" data-filter="area" data-v="Chalong">Chalong</button>
+        </div>
+      </div>
+
+      <div class="filter-group" id="type-filters">
+        <span class="filter-label">Status</span>
+        <div class="filter-pills">
+          <button class="fpill active" data-filter="type" data-v="all">All</button>
+          <button class="fpill" data-filter="type" data-v="long-let">Long-let</button>
+          <button class="fpill" data-filter="type" data-v="for-sale">For sale</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="results-meta">
+      <p class="count"><strong id="result-count">9</strong> properties · curated this month</p>
+      <span class="sort">Sorted by Annie's recommendation</span>
+    </div>
+
+    <div class="cards-grid" id="props-grid">
+
+      <article class="prop-card tone-leaf" data-area="Bangtao" data-type="long-let">
+        <div class="media" style="background-image: url('https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=900&q=80');">
+          <span class="badge">Long-let</span>
+          <span class="caption"><span class="type">Pool villa · tropical modern</span></span>
+          <span class="arrow-btn"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H4M11 3v7" stroke="#1F1C17" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </div>
+        <div class="meta">
+          <span class="title">4-bed pool villa, Bangtao</span>
+          <span class="sub">320 sqm · private pool · 5 min to school</span>
+          <span class="price">฿65,000 / mo</span>
+        </div>
+      </article>
+
+      <article class="prop-card tone-sand" data-area="Rawai" data-type="long-let">
+        <div class="media" style="background-image: url('https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&w=900&q=80');">
+          <span class="badge">Long-let</span>
+          <span class="caption"><span class="type">Townhouse · sea-facing</span></span>
+          <span class="arrow-btn"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H4M11 3v7" stroke="#1F1C17" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </div>
+        <div class="meta">
+          <span class="title">3-bed townhouse, Rawai</span>
+          <span class="sub">210 sqm · sea views · quiet street</span>
+          <span class="price">฿38,000 / mo</span>
+        </div>
+      </article>
+
+      <article class="prop-card tone-brown" data-area="Cherngtalay" data-type="for-sale">
+        <div class="media" style="background-image: url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=900&q=80');">
+          <span class="badge">For sale</span>
+          <span class="caption"><span class="type">Boutique villa · pool + pavilion</span></span>
+          <span class="arrow-btn"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H4M11 3v7" stroke="#1F1C17" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </div>
+        <div class="meta">
+          <span class="title">3-bed modern villa, Cherngtalay</span>
+          <span class="sub">260 sqm · pool · community access</span>
+          <span class="price">฿52,000 / mo</span>
+        </div>
+      </article>
+
+      <article class="prop-card tone-clay" data-area="Bangtao" data-type="long-let">
+        <div class="media" style="background-image: url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=900&q=80');">
+          <span class="badge">Long-let</span>
+          <span class="caption"><span class="type">Condo · low-maintenance</span></span>
+          <span class="arrow-btn"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H4M11 3v7" stroke="#1F1C17" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </div>
+        <div class="meta">
+          <span class="title">2-bed condo, Bangtao</span>
+          <span class="sub">95 sqm · shared pool · 3 min to beach</span>
+          <span class="price">฿22,000 / mo</span>
+        </div>
+      </article>
+
+      <article class="prop-card tone-olive" data-area="Nai Harn" data-type="for-sale">
+        <div class="media" style="background-image: url('https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=900&q=80');">
+          <span class="badge">For sale</span>
+          <span class="caption"><span class="type">Hillside villa · panoramic sea view</span></span>
+          <span class="arrow-btn"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H4M11 3v7" stroke="#1F1C17" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </div>
+        <div class="meta">
+          <span class="title">4-bed hillside villa, Nai Harn</span>
+          <span class="sub">380 sqm · panoramic sea view · private</span>
+          <span class="price">฿75,000 / mo</span>
+        </div>
+      </article>
+
+      <article class="prop-card tone-leaf" data-area="Rawai" data-type="long-let">
+        <div class="media" style="background-image: url('https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=900&q=80');">
+          <span class="badge">Long-let</span>
+          <span class="caption"><span class="type">Family home · garden + terrace</span></span>
+          <span class="arrow-btn"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H4M11 3v7" stroke="#1F1C17" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </div>
+        <div class="meta">
+          <span class="title">3-bed family home, Rawai</span>
+          <span class="sub">240 sqm · large garden · quiet soi</span>
+          <span class="price">฿42,000 / mo</span>
+        </div>
+      </article>
+
+      <article class="prop-card tone-ochre" data-area="Kathu" data-type="long-let">
+        <div class="media" style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=80');">
+          <span class="badge">Long-let</span>
+          <span class="caption"><span class="type">Townhouse · central, value-led</span></span>
+          <span class="arrow-btn"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H4M11 3v7" stroke="#1F1C17" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </div>
+        <div class="meta">
+          <span class="title">3-bed townhouse, Kathu</span>
+          <span class="sub">180 sqm · 5 min to BIMS Hospital</span>
+          <span class="price">฿28,000 / mo</span>
+        </div>
+      </article>
+
+      <article class="prop-card tone-sand" data-area="Chalong" data-type="long-let">
+        <div class="media" style="background-image: url('https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=900&q=80');">
+          <span class="badge">Long-let</span>
+          <span class="caption"><span class="type">Family house · genuine local feel</span></span>
+          <span class="arrow-btn"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H4M11 3v7" stroke="#1F1C17" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </div>
+        <div class="meta">
+          <span class="title">4-bed family house, Chalong</span>
+          <span class="sub">260 sqm · garden · 8 min to hospital</span>
+          <span class="price">฿32,000 / mo</span>
+        </div>
+      </article>
+
+      <article class="prop-card tone-brown" data-area="Bangtao" data-type="for-sale">
+        <div class="media" style="background-image: url('https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=900&q=80');">
+          <span class="badge">For sale</span>
+          <span class="caption"><span class="type">Beach villa · architect-built</span></span>
+          <span class="arrow-btn"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H4M11 3v7" stroke="#1F1C17" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </div>
+        <div class="meta">
+          <span class="title">3-bed beach villa, Bangtao</span>
+          <span class="sub">280 sqm · 200m to beach · architect-built</span>
+          <span class="price">฿85,000 / mo</span>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="empty-state" id="empty-state">
+      <h3>Nothing matches yet.</h3>
+      <p>We don't pretend to have a property for every combination. If nothing here fits, message Annie directly — there are usually a few homes we haven't published yet.</p>
+    </div>
+
+    <p style="font-size: 13px; color: var(--ink-muted); text-align: center; margin-top: 56px; max-width: 60ch; margin-left: auto; margin-right: auto; line-height: 1.65;">
+      You're seeing curated properties — not every listing on the island. We deliberately keep this small. If you want something that isn't here, tell us how you want to live and we'll find it for you.
+    </p>
+  </div>
+</section>
+
+<!-- =========================================================
+     FOOTER CTA
+     ========================================================= -->
+<section class="cta-block">
+  <div class="wrap">
+    <span class="eyebrow">Not finding the right one?</span>
+    <h2>Tell us how you want to <em>live</em> — we'll match the home.</h2>
+    <p class="sub">The properties above are a starting point, not the whole list. Most of our best matches happen off-page, after a short conversation.</p>
+    <div class="cta-row">
+      <a href="contact.html" class="btn btn-on-dark">Book a call <span class="arrow">↗</span></a>
+      <a href="areas.html" class="btn btn-ghost-on-dark">Explore areas first</a>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     FOOTER
+     ========================================================= -->
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="row">
+      <div>
+        <span class="wordmark"><span class="ph">Phuket</span>&nbsp;Living<span class="tag">This feels right</span></span>
+        <p>A relocation partner for expat families moving to Phuket. Clarity in every step. Confidence in every decision.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="areas.html">Areas</a></li>
+          <li><a href="properties.html">Properties</a></li>
+          <li><a href="resources.html">Resources</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About Annie</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="resources.html">Guides</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Reach out</h4>
+        <ul>
+          <li><a href="#">WhatsApp</a></li>
+          <li><a href="#">@phuketliving</a></li>
+          <li><a href="mailto:hello@phuketliving.com">hello@phuketliving.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="legal">
+      <span>© 2025 Phuket Living — Brand &amp; Digital v1.0</span>
+      <span>Made in Phuket</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Filter logic
+  const state = { area: 'all', type: 'all' };
+  const grid = document.getElementById('props-grid');
+  const cards = grid.querySelectorAll('.prop-card');
+  const countEl = document.getElementById('result-count');
+  const emptyEl = document.getElementById('empty-state');
+
+  function applyFilters() {
+    let visible = 0;
+    cards.forEach(card => {
+      const matchArea = state.area === 'all' || card.dataset.area === state.area;
+      const matchType = state.type === 'all' || card.dataset.type === state.type;
+      const show = matchArea && matchType;
+      card.style.display = show ? '' : 'none';
+      if (show) visible++;
+    });
+    countEl.textContent = visible;
+    if (visible === 0) {
+      emptyEl.classList.add('show');
+      grid.style.display = 'none';
+    } else {
+      emptyEl.classList.remove('show');
+      grid.style.display = '';
+    }
+  }
+
+  document.querySelectorAll('.fpill').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const f = btn.dataset.filter;
+      const v = btn.dataset.v;
+      document.querySelectorAll(`.fpill[data-filter="${f}"]`).forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      state[f] = v;
+      applyFilters();
+    });
+  });
+</script>
+
+</body>
+</html>
