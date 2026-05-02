@@ -1778,15 +1778,19 @@ em, .it { font-style: italic; font-family: var(--serif); }
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 10px;
   height: 52px;
-  padding: 0 26px;
+  padding: 0 40px;
+  min-width: 200px;
   border-radius: var(--r-pill);
   background: var(--ink);
   color: var(--paper);
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 500;
+  letter-spacing: -0.005em;
+  transition: background .15s;
 }
+.inline-search .find-btn:hover { background: var(--ink-2); }
 
 /* --- Cards: Editorial property -------------------------- */
 .cards-grid {
