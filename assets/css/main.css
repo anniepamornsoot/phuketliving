@@ -31,7 +31,7 @@
   --r-pill: 999px;
 
   /* Layout */
-  --container: 1200px;
+  --container: 1440px;
   --gutter: 32px;
 
   /* Eyebrow / label tracking */
@@ -1742,20 +1742,21 @@ em, .it { font-style: italic; font-family: var(--serif); }
   margin-top: 56px;
   background: var(--sand);
   border-radius: var(--r-pill);
-  padding: 14px 14px 14px 28px;
+  padding: 16px 16px 16px 28px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr auto;
   gap: 0;
-  align-items: center;
+  align-items: stretch;
   width: 100%;
   border: 1px solid var(--line);
 }
 .inline-search .field {
-  padding: 6px 18px;
+  padding: 4px 18px;
   border-right: 1px solid var(--line);
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  justify-content: center;
+  gap: 4px;
   cursor: pointer;
 }
 .inline-search .field:first-child { padding-left: 0; }
@@ -1963,18 +1964,39 @@ em, .it { font-style: italic; font-family: var(--serif); }
   border-radius: 4px;
 }
 .area-card .body {
-  padding: 24px 24px 18px;
+  padding: 24px 24px 20px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 12px;
   flex: 1;
 }
-.area-card .body .name {
+.area-card .body-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 18px;
+}
+.area-card .body-head .name {
   font-family: var(--serif);
   font-size: 26px;
   letter-spacing: -0.01em;
   color: var(--ink);
+  line-height: 1.05;
 }
+.area-card .body-head .link {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  margin-top: 6px;
+}
+.area-card .body-head .link .arrow { transition: transform .2s ease; }
+.area-card:hover .body-head .link .arrow { transform: translate(2px, -2px); }
 .area-card .body .desc {
   font-size: 14px;
   color: var(--ink-2);
@@ -2000,19 +2022,15 @@ em, .it { font-style: italic; font-family: var(--serif); }
   margin-top: 3px;
 }
 .area-card .foot {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 14px 24px 22px;
+  padding: 14px 24px 20px;
   border-top: 1px solid var(--line);
 }
-.area-card .foot .link {
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--ink);
-  display: inline-flex; align-items: center; gap: 6px;
+.area-card .foot .count {
+  font-family: var(--sans);
+  font-size: 12px;
+  color: var(--ink-muted);
+  letter-spacing: 0.02em;
 }
-.area-card .foot .count { font-size: 12px; color: var(--ink-muted); }
 
 /* --- Steps ---------------------------------------------- */
 .steps {
