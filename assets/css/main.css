@@ -2229,7 +2229,7 @@ em, .it { font-style: italic; font-family: var(--serif); }
 }
 
 .cta-card {
-  background: var(--ink);
+  background: var(--olive);
   border-radius: var(--r-lg);
   display: grid;
   grid-template-columns: 1.05fr 1fr;
