@@ -1742,22 +1742,23 @@ em, .it { font-style: italic; font-family: var(--serif); }
   margin-top: 56px;
   background: var(--sand);
   border-radius: var(--r-pill);
-  padding: 16px 16px 16px 28px;
+  padding: 10px 10px 10px 28px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr auto;
   gap: 0;
-  align-items: stretch;
+  align-items: center;
   width: 100%;
   border: 1px solid var(--line);
 }
 .inline-search .field {
-  padding: 4px 18px;
+  padding: 0 18px;
   border-right: 1px solid var(--line);
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 4px;
   cursor: pointer;
+  height: 52px;
 }
 .inline-search .field:first-child { padding-left: 0; }
 .inline-search .field:nth-last-child(2) { border-right: none; }
@@ -1771,6 +1772,7 @@ em, .it { font-style: italic; font-family: var(--serif); }
 .inline-search .field-v {
   font-size: 14px;
   color: var(--ink);
+  line-height: 1.2;
 }
 .inline-search .find-btn {
   display: inline-flex;
