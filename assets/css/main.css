@@ -1743,7 +1743,7 @@ em, .it { font-style: italic; font-family: var(--serif); }
   background: var(--paper);
   border: 1px solid var(--line);
   border-radius: var(--r-pill);
-  padding: 5px;
+  padding: 6px 6px 6px 8px;
   display: flex;
   align-items: center;
   gap: 4px;
@@ -1753,19 +1753,19 @@ em, .it { font-style: italic; font-family: var(--serif); }
 .inline-search .field {
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 0 18px;
+  gap: 12px;
+  padding: 0 16px;
   border-radius: var(--r-pill);
   cursor: pointer;
   transition: background .15s;
-  height: 42px;
+  height: 44px;
   flex: 1;
   min-width: 0;
 }
 .inline-search .field:hover { background: var(--sand); }
 .inline-search .field-content {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   gap: 8px;
   flex: 1;
   min-width: 0;
@@ -1778,6 +1778,7 @@ em, .it { font-style: italic; font-family: var(--serif); }
   text-transform: uppercase;
   color: var(--ink-muted);
   flex-shrink: 0;
+  line-height: 1;
 }
 .inline-search .field-v {
   font-family: var(--sans);
@@ -1785,6 +1786,7 @@ em, .it { font-style: italic; font-family: var(--serif); }
   font-weight: 500;
   color: var(--ink);
   letter-spacing: -0.005em;
+  line-height: 1;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -1793,9 +1795,12 @@ em, .it { font-style: italic; font-family: var(--serif); }
 }
 .inline-search .field-chevron {
   flex-shrink: 0;
+  width: 12px;
+  height: 12px;
   color: var(--ink-muted);
-  display: flex;
+  display: inline-flex;
   align-items: center;
+  justify-content: center;
   transition: transform .15s, color .15s;
 }
 .inline-search .field:hover .field-chevron {
@@ -1803,9 +1808,9 @@ em, .it { font-style: italic; font-family: var(--serif); }
   transform: translateY(1px);
 }
 .inline-search .find-btn {
-  height: 42px;
-  padding: 0 32px;
-  min-width: 260px;
+  height: 44px;
+  padding: 0 36px;
+  min-width: 360px;
   border-radius: var(--r-pill);
   background: var(--ink);
   color: var(--paper);
@@ -1825,9 +1830,9 @@ em, .it { font-style: italic; font-family: var(--serif); }
   transform: translateY(-1px);
 }
 @media (max-width: 720px) {
-  .inline-search { padding: 4px; flex-wrap: wrap; }
-  .inline-search .field { flex-basis: calc(50% - 4px); height: 40px; }
-  .inline-search .find-btn { flex: 1; min-width: 0; padding: 0 16px; height: 40px; }
+  .inline-search { padding: 5px; flex-wrap: wrap; }
+  .inline-search .field { flex-basis: calc(50% - 4px); height: 40px; padding: 0 12px; }
+  .inline-search .find-btn { flex: 1; min-width: 0; padding: 0 18px; height: 40px; }
 }
 
 /* --- Cards: Editorial property -------------------------- */
