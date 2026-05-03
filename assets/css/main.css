@@ -25,13 +25,13 @@
   --sans:  'Figtree', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 
   /* Scalable type scale (clamp ramp 360px → 1140px viewport) */
-  --title-1: clamp(3rem, 2.5385rem + 2.0513vw, 4rem);          /* 48 → 64 */
-  --title-2: clamp(2.4rem, 2.1231rem + 1.2308vw, 3rem);        /* 38.4 → 48 */
-  --title-3: clamp(2.1rem, 1.9154rem + 0.8205vw, 2.5rem);      /* 33.6 → 40 */
+  --title-1: clamp(3.375rem, 2.8558rem + 2.3077vw, 4.5rem);    /* 54 → 72 */
+  --title-2: clamp(2.8rem, 2.4769rem + 1.4359vw, 3.5rem);      /* 44.8 → 56 */
+  --title-3: clamp(2.25rem, 2.0192rem + 1.0256vw, 2.75rem);    /* 36 → 44 */
   --title-4: clamp(1.8rem, 1.7077rem + 0.4103vw, 2rem);        /* 28.8 → 32 */
-  --title-5: clamp(1.6rem, 1.5308rem + 0.3077vw, 1.75rem);     /* 25.6 → 28 */
-  --title-6: clamp(1.4rem, 1.3538rem + 0.2051vw, 1.5rem);      /* 22.4 → 24 */
-  --title-7: clamp(1.2rem, 1.1815rem + 0.1026vw, 1.25rem);     /* 19.2 → 20 */
+  --title-5: clamp(1.35rem, 1.2808rem + 0.3077vw, 1.5rem);     /* 21.6 → 24 */
+  --title-6: clamp(1.24rem, 1.1751rem + 0.2821vw, 1.375rem);   /* 19.84 → 22 */
+  --title-7: clamp(1.08rem, 1.0593rem + 0.0923vw, 1.125rem);   /* 17.28 → 18 */
 
   /* Radii */
   --r-sm:   4px;
