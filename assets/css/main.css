@@ -24,6 +24,15 @@
   --serif: 'Lora', Georgia, 'Times New Roman', serif;
   --sans:  'Figtree', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 
+  /* Scalable type scale (clamp ramp 360px → 1140px viewport) */
+  --title-1: clamp(3rem, 2.5385rem + 2.0513vw, 4rem);          /* 48 → 64 */
+  --title-2: clamp(2.4rem, 2.1231rem + 1.2308vw, 3rem);        /* 38.4 → 48 */
+  --title-3: clamp(2.1rem, 1.9154rem + 0.8205vw, 2.5rem);      /* 33.6 → 40 */
+  --title-4: clamp(1.8rem, 1.7077rem + 0.4103vw, 2rem);        /* 28.8 → 32 */
+  --title-5: clamp(1.6rem, 1.5308rem + 0.3077vw, 1.75rem);     /* 25.6 → 28 */
+  --title-6: clamp(1.4rem, 1.3538rem + 0.2051vw, 1.5rem);      /* 22.4 → 24 */
+  --title-7: clamp(1.2rem, 1.1815rem + 0.1026vw, 1.25rem);     /* 19.2 → 20 */
+
   /* Radii */
   --r-sm:   4px;
   --r-md:   8px;
@@ -58,29 +67,29 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .display {
   font-family: var(--serif);
   font-weight: 400;
-  font-size: clamp(48px, 8vw, 96px);
-  line-height: 0.98;
+  font-size: var(--title-1);
+  line-height: 1.05;
   letter-spacing: -0.03em;
   color: var(--ink);
 }
 .h1 {
   font-family: var(--serif);
   font-weight: 400;
-  font-size: clamp(40px, 5.5vw, 64px);
+  font-size: var(--title-2);
   line-height: 1.04;
   letter-spacing: -0.02em;
 }
 .h2 {
   font-family: var(--serif);
   font-weight: 400;
-  font-size: clamp(30px, 3.6vw, 44px);
+  font-size: var(--title-3);
   line-height: 1.1;
   letter-spacing: -0.015em;
 }
 .h3 {
   font-family: var(--serif);
   font-weight: 400;
-  font-size: 24px;
+  font-size: var(--title-5);
   line-height: 1.25;
   letter-spacing: -0.01em;
 }
@@ -278,8 +287,8 @@ em, .it { font-style: italic; font-family: var(--serif); }
 .hero-sub h1 {
   font-family: var(--serif);
   font-weight: 400;
-  font-size: clamp(40px, 6vw, 72px);
-  line-height: 1.02;
+  font-size: var(--title-2);
+  line-height: 1.08;
   letter-spacing: -0.025em;
   color: var(--ink);
   max-width: 18ch;
@@ -355,7 +364,7 @@ em, .it { font-style: italic; font-family: var(--serif); }
 }
 .matcher .result .r-area {
   font-family: var(--serif);
-  font-size: 36px;
+  font-size: var(--title-3);
   font-weight: 400;
   letter-spacing: -0.015em;
   font-style: italic;
@@ -433,7 +442,7 @@ em, .it { font-style: italic; font-family: var(--serif); }
   gap: 32px;
 }
 .areas-grid .area-card .media { aspect-ratio: 16 / 10; }
-.areas-grid .area-card .body .name { font-size: 32px; }
+.areas-grid .area-card .body-head .name { font-size: var(--title-4); }
 
 @media (max-width: 1024px) {
   .matcher { padding: 40px 28px; }
@@ -442,7 +451,6 @@ em, .it { font-style: italic; font-family: var(--serif); }
 @media (max-width: 720px) {
   .matcher { padding: 32px 22px; }
   .matcher .result { padding: 24px 22px; }
-  .matcher .result .r-area { font-size: 28px; }
   .compare-table th, .compare-table td { padding: 14px 14px; font-size: 13px; }
   .compare-table .area-h { font-size: 18px; }
 }
@@ -476,8 +484,8 @@ em, .it { font-style: italic; font-family: var(--serif); }
 .guide-hero h1 {
   font-family: var(--serif);
   font-weight: 400;
-  font-size: clamp(48px, 7vw, 88px);
-  line-height: 1.0;
+  font-size: var(--title-1);
+  line-height: 1.05;
   letter-spacing: -0.03em;
   color: var(--ink);
   max-width: 16ch;
@@ -513,7 +521,7 @@ em, .it { font-style: italic; font-family: var(--serif); }
 .verdict-text {
   font-family: var(--serif);
   font-style: italic;
-  font-size: 19px;
+  font-size: var(--title-7);
   line-height: 1.45;
   letter-spacing: -0.005em;
   color: var(--ink);
@@ -533,7 +541,7 @@ em, .it { font-style: italic; font-family: var(--serif); }
 }
 .fact-card .v {
   font-family: var(--serif);
-  font-size: 28px;
+  font-size: var(--title-4);
   font-weight: 400;
   letter-spacing: -0.015em;
   line-height: 1.1;
@@ -571,7 +579,7 @@ em, .it { font-style: italic; font-family: var(--serif); }
 }
 .life-title {
   font-family: var(--serif);
-  font-size: 22px;
+  font-size: var(--title-6);
   font-weight: 400;
   letter-spacing: -0.01em;
   color: var(--ink);
@@ -666,11 +674,9 @@ em, .it { font-style: italic; font-family: var(--serif); }
 @media (max-width: 720px) {
   .guide-hero { padding: 56px 0 64px; }
   .facts-grid-6 { grid-template-columns: repeat(2, 1fr); }
-  .fact-card .v { font-size: 22px; }
   .life-row { grid-template-columns: 1fr; gap: 14px; padding: 24px 0; }
   .life-icon { width: 44px; height: 44px; }
   .verdict-bar { padding: 18px 22px; }
-  .verdict-text { font-size: 17px; }
   .honest-card { padding: 24px 22px; }
 }
 
@@ -816,7 +822,7 @@ em, .it { font-style: italic; font-family: var(--serif); }
 .empty-state.show { display: block; }
 .empty-state h3 {
   font-family: var(--serif);
-  font-size: 28px;
+  font-size: var(--title-4);
   font-style: italic;
   color: var(--ink);
   margin-bottom: 8px;
@@ -847,7 +853,7 @@ em, .it { font-style: italic; font-family: var(--serif); }
 .about-hero h1 {
   font-family: var(--serif);
   font-weight: 400;
-  font-size: clamp(40px, 5.5vw, 64px);
+  font-size: var(--title-1);
   line-height: 1.05;
   letter-spacing: -0.025em;
   color: var(--ink);
@@ -954,7 +960,7 @@ em, .it { font-style: italic; font-family: var(--serif); }
 .belief-item:last-child { border-bottom: none; }
 .belief-num {
   font-family: var(--serif);
-  font-size: 56px;
+  font-size: var(--title-2);
   font-weight: 400;
   letter-spacing: -0.02em;
   color: var(--olive);
@@ -962,7 +968,7 @@ em, .it { font-style: italic; font-family: var(--serif); }
 }
 .belief-title {
   font-family: var(--serif);
-  font-size: 24px;
+  font-size: var(--title-5);
   font-weight: 400;
   letter-spacing: -0.01em;
   color: var(--ink);
@@ -1027,8 +1033,8 @@ em, .it { font-style: italic; font-family: var(--serif); }
 }
 .brand-promise .quote {
   font-family: var(--serif);
-  font-size: clamp(32px, 4.4vw, 54px);
-  line-height: 1.0;
+  font-size: var(--title-2);
+  line-height: 1.08;
   letter-spacing: -0.025em;
   color: var(--paper);
   display: flex;
@@ -1109,7 +1115,6 @@ em, .it { font-style: italic; font-family: var(--serif); }
 }
 @media (max-width: 720px) {
   .belief-item { grid-template-columns: 1fr; gap: 8px; padding: 24px 0; }
-  .belief-num { font-size: 40px; }
   .brand-promise { padding: 28px 24px; }
   .pull-quote { padding-left: 18px; margin: 28px 0; }
 }
@@ -1174,7 +1179,7 @@ em, .it { font-style: italic; font-family: var(--serif); }
 }
 .guide-featured h3 {
   font-family: var(--serif);
-  font-size: clamp(28px, 3.2vw, 40px);
+  font-size: var(--title-3);
   font-weight: 400;
   line-height: 1.1;
   letter-spacing: -0.02em;
@@ -1279,7 +1284,7 @@ em, .it { font-style: italic; font-family: var(--serif); }
 .guide-card .cat.cat-life   { color: var(--olive); }
 .guide-card h4 {
   font-family: var(--serif);
-  font-size: 22px;
+  font-size: var(--title-6);
   font-weight: 400;
   letter-spacing: -0.01em;
   line-height: 1.2;
@@ -1333,7 +1338,7 @@ em, .it { font-style: italic; font-family: var(--serif); }
   text-align: left;
   background: var(--paper);
   font-family: var(--serif);
-  font-size: 20px;
+  font-size: var(--title-6);
   font-weight: 400;
   letter-spacing: -0.01em;
   color: var(--ink);
@@ -1657,7 +1662,7 @@ em, .it { font-style: italic; font-family: var(--serif); }
 }
 .success-h {
   font-family: var(--serif);
-  font-size: clamp(32px, 4.5vw, 56px);
+  font-size: var(--title-2);
   letter-spacing: -0.025em;
   line-height: 1.05;
   color: var(--ink);
@@ -1760,7 +1765,7 @@ em, .it { font-style: italic; font-family: var(--serif); }
 }
 .property-info-card .address {
   font-family: var(--serif);
-  font-size: 22px;
+  font-size: var(--title-6);
   letter-spacing: -0.005em;
   color: var(--ink);
   line-height: 1.2;
@@ -1786,7 +1791,7 @@ em, .it { font-style: italic; font-family: var(--serif); }
 }
 .property-quick-facts .qf-v {
   font-family: var(--serif);
-  font-size: 28px;
+  font-size: var(--title-4);
   letter-spacing: -0.02em;
   color: var(--ink);
   line-height: 1;
@@ -1808,7 +1813,7 @@ em, .it { font-style: italic; font-family: var(--serif); }
 }
 .property-price-row .price {
   font-family: var(--serif);
-  font-size: 26px;
+  font-size: var(--title-5);
   letter-spacing: -0.015em;
   color: var(--ink);
 }
@@ -1923,7 +1928,7 @@ em, .it { font-style: italic; font-family: var(--serif); }
 .property-header .left .name {
   font-family: var(--serif);
   font-weight: 400;
-  font-size: clamp(36px, 4.5vw, 48px);
+  font-size: var(--title-3);
   letter-spacing: -0.025em;
   line-height: 1.05;
   color: var(--ink);
@@ -1953,7 +1958,7 @@ em, .it { font-style: italic; font-family: var(--serif); }
 }
 .property-header .right .price-big {
   font-family: var(--serif);
-  font-size: clamp(28px, 3vw, 36px);
+  font-size: var(--title-4);
   letter-spacing: -0.015em;
   color: var(--ink);
 }
@@ -2174,8 +2179,8 @@ em, .it { font-style: italic; font-family: var(--serif); }
 .blog-h1 {
   font-family: var(--serif);
   font-weight: 400;
-  font-size: clamp(36px, 4.8vw, 60px);
-  line-height: 1.05;
+  font-size: var(--title-2);
+  line-height: 1.08;
   letter-spacing: -0.025em;
   color: var(--ink);
   margin-bottom: 24px;
@@ -2228,7 +2233,7 @@ em, .it { font-style: italic; font-family: var(--serif); }
 .blog-body h2 {
   font-family: var(--serif);
   font-weight: 400;
-  font-size: clamp(26px, 2.8vw, 32px);
+  font-size: var(--title-4);
   letter-spacing: -0.015em;
   color: var(--ink);
   margin-top: 48px;
@@ -2239,7 +2244,7 @@ em, .it { font-style: italic; font-family: var(--serif); }
 .blog-body h3 {
   font-family: var(--serif);
   font-weight: 400;
-  font-size: 22px;
+  font-size: var(--title-6);
   letter-spacing: -0.01em;
   color: var(--ink);
   margin-top: 32px;
@@ -2306,7 +2311,7 @@ em, .it { font-style: italic; font-family: var(--serif); }
 .author-card .who .name {
   font-family: var(--serif);
   font-style: italic;
-  font-size: 22px;
+  font-size: var(--title-6);
   color: var(--ink);
   letter-spacing: -0.005em;
   line-height: 1.1;
@@ -2368,10 +2373,8 @@ em, .it { font-style: italic; font-family: var(--serif); }
 }
 @media (max-width: 720px) {
   .property-info-card { padding: 24px; }
-  .property-quick-facts .qf-v { font-size: 22px; }
   .property-header { flex-direction: column; align-items: flex-start; gap: 20px; }
   .property-header .right { text-align: left; }
-  .blog-h1 { font-size: 36px; }
   .blog-body { font-size: 16px; }
   .author-card { padding: 24px; }
   .blog-cover { aspect-ratio: 4 / 3; margin-bottom: 40px; }
@@ -2380,8 +2383,8 @@ em, .it { font-style: italic; font-family: var(--serif); }
 .hero h1 {
   font-family: var(--serif);
   font-weight: 400;
-  font-size: clamp(44px, 7vw, 88px);
-  line-height: 1.0;
+  font-size: var(--title-1);
+  line-height: 1.05;
   letter-spacing: -0.025em;
   color: var(--ink);
   max-width: 14ch;
@@ -2610,7 +2613,7 @@ em, .it { font-style: italic; font-family: var(--serif); }
 }
 .prop-card .meta .title {
   font-family: var(--serif);
-  font-size: 22px;
+  font-size: var(--title-6);
   letter-spacing: -0.01em;
   color: var(--ink);
   line-height: 1.2;
@@ -2687,7 +2690,7 @@ em, .it { font-style: italic; font-family: var(--serif); }
 }
 .area-card .body-head .name {
   font-family: var(--serif);
-  font-size: 26px;
+  font-size: var(--title-5);
   letter-spacing: -0.01em;
   color: var(--ink);
   line-height: 1.05;
@@ -2754,7 +2757,7 @@ em, .it { font-style: italic; font-family: var(--serif); }
 }
 .step-num {
   font-family: var(--serif);
-  font-size: 56px;
+  font-size: var(--title-2);
   font-weight: 400;
   color: var(--olive);
   line-height: 1;
@@ -2762,7 +2765,7 @@ em, .it { font-style: italic; font-family: var(--serif); }
 }
 .step-title {
   font-family: var(--serif);
-  font-size: 22px;
+  font-size: var(--title-6);
   letter-spacing: -0.01em;
   color: var(--ink);
   line-height: 1.25;
@@ -2781,7 +2784,7 @@ em, .it { font-style: italic; font-family: var(--serif); }
 }
 .stat .v {
   font-family: var(--serif);
-  font-size: 56px;
+  font-size: var(--title-2);
   letter-spacing: -0.02em;
   line-height: 1;
   color: var(--ink);
@@ -2836,7 +2839,7 @@ em, .it { font-style: italic; font-family: var(--serif); }
 .quote-card .text {
   font-family: var(--serif);
   font-style: italic;
-  font-size: 19px;
+  font-size: var(--title-6);
   line-height: 1.4;
   letter-spacing: -0.005em;
   color: var(--ink);
@@ -2977,8 +2980,8 @@ em, .it { font-style: italic; font-family: var(--serif); }
 .cta-card h2 {
   font-family: var(--serif);
   font-weight: 400;
-  font-size: clamp(34px, 4.4vw, 56px);
-  line-height: 1.0;
+  font-size: var(--title-2);
+  line-height: 1.05;
   letter-spacing: -0.025em;
   color: var(--paper);
   margin-bottom: 24px;
@@ -3131,5 +3134,4 @@ em, .it { font-style: italic; font-family: var(--serif); }
   .site-foot .row { grid-template-columns: 1fr; gap: 32px; margin-bottom: 40px; }
   .cta-block { padding: 80px 0; }
   .quote-card { padding: 28px 24px; }
-  .quote-card .text { font-size: 18px; }
 }
