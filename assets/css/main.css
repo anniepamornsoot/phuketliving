@@ -2939,9 +2939,9 @@ em, .it { font-style: italic; font-family: var(--serif); }
   flex-direction: column;
   background: var(--paper);
   border: 1px solid var(--line);
-  border-radius: 26px;
-  padding: 52px 44px 44px;
-  min-height: 440px;
+  border-radius: 24px;
+  padding: 44px 38px 32px;
+  min-height: 340px;
   box-shadow: 0 1px 0 rgba(31, 28, 23, 0.02);
   transition:
     border-color .35s ease,
@@ -3058,7 +3058,7 @@ em, .it { font-style: italic; font-family: var(--serif); }
   line-height: 1.5;
   letter-spacing: -0.008em;
   color: var(--ink);
-  margin-top: 18px;
+  margin-top: 14px;
   flex: 1;
   opacity: 0;
   transform: translateY(12px);
@@ -3098,9 +3098,9 @@ em, .it { font-style: italic; font-family: var(--serif); }
   position: relative;
   z-index: 1;
   height: 1px;
-  width: 88px;
+  width: 72px;
   background: var(--line);
-  margin: 26px 0 18px;
+  margin: 18px 0 14px;
   transform-origin: left;
   transform: scaleX(0);
 }
@@ -3203,41 +3203,41 @@ em, .it { font-style: italic; font-family: var(--serif); }
 @media (max-width: 980px) {
   .tf-card {
     flex-basis: calc(50% - 12px);
-    padding: 46px 36px 38px;
-    min-height: 400px;
+    padding: 40px 32px 28px;
+    min-height: 310px;
   }
   .tf-slider-track { gap: 24px; }
-  .tf-mark { font-size: 120px; }
-  .tf-mark-close { bottom: -42px; }
+  .tf-mark { font-size: 110px; }
+  .tf-mark-close { bottom: -38px; }
   .tf-pill { right: 24px; }
 }
 @media (max-width: 760px) {
   .tf-card {
     flex-basis: 84%;
-    padding: 46px 32px 36px;
-    min-height: 380px;
+    padding: 40px 28px 26px;
+    min-height: 300px;
     border-radius: 22px;
   }
   .tf-slider-track { gap: 18px; }
-  .tf-mark { font-size: 110px; }
+  .tf-mark { font-size: 100px; }
   .tf-mark-open  { left: 22px; }
-  .tf-mark-close { right: 22px; bottom: -36px; }
+  .tf-mark-close { right: 22px; bottom: -32px; }
   .tf-pill { right: 18px; padding: 5px 18px 5px 5px; gap: 10px; }
   .tf-pill-avatar { width: 38px; height: 38px; font-size: 14px; }
 }
 @media (max-width: 480px) {
   .tf-card {
     flex-basis: 88%;
-    padding: 44px 24px 32px;
-    min-height: 360px;
+    padding: 38px 22px 24px;
+    min-height: 280px;
   }
-  .tf-mark { font-size: 92px; }
-  .tf-mark-close { bottom: -28px; }
+  .tf-mark { font-size: 86px; }
+  .tf-mark-close { bottom: -26px; }
   .tf-pill { top: -20px; }
   .tf-pill-name { font-size: 13px; }
   .tf-pill-role { font-size: 10.5px; }
-  .tf-quote { margin-top: 16px; }
-  .tf-divider { margin: 22px 0 16px; }
+  .tf-quote { margin-top: 12px; }
+  .tf-divider { margin: 16px 0 12px; }
   .tf-stars .tf-star { font-size: 16px; }
   .tf-arrow-btn { width: 42px; height: 42px; }
   .tf-controls { gap: 18px; margin-top: 28px; }
