@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resources — Phuket Living</title>
+<meta name="description" content="Practical, honest guides to relocating to Phuket. Visas, schools, healthcare, cost of living — everything you need to understand before you decide.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400;1,500&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+
+<!-- =========================================================
+     NAV
+     ========================================================= -->
+<header class="site-nav">
+  <div class="wrap row">
+    <a href="index.html" class="wordmark" aria-label="Phuket Living — home">
+      <span class="ph">Phuket</span><span>Living</span>
+    </a>
+    <nav class="links" aria-label="Primary">
+      <a href="areas.html">Areas</a>
+      <a href="properties.html">Properties</a>
+      <a href="about.html">About</a>
+      <a href="resources.html" class="active">Resources</a>
+    </nav>
+    <a href="contact.html" class="btn btn-primary btn-sm">Book a call <span class="arrow">↗</span></a>
+    <button class="nav-toggle" aria-label="Open menu">
+      <svg width="18" height="14" viewBox="0 0 18 14" fill="none"><path d="M1 1h16M1 7h16M1 13h16" stroke="#1F1C17" stroke-width="1.4" stroke-linecap="round"/></svg>
+    </button>
+  </div>
+</header>
+
+<!-- =========================================================
+     HERO
+     ========================================================= -->
+<section class="hero-sub">
+  <div class="wrap">
+    <span class="eyebrow">Relocation resources</span>
+    <h1>Everything you need to <em>understand</em> before you decide.</h1>
+    <p class="sub">Practical, honest guides written from real experience living in Phuket. No fluff, no SEO padding — just the information that actually helps families make confident decisions about the move.</p>
+  </div>
+</section>
+
+<!-- =========================================================
+     FILTER + FEATURED + GRID
+     ========================================================= -->
+<section class="section paper" style="padding-top: 56px;">
+  <div class="wrap">
+
+    <div class="filter-bar">
+      <div class="filter-bar-head">
+        <div class="text">
+          <span class="eyebrow">Filter the guides</span>
+          <h3>What do you want to <em>understand?</em></h3>
+          <p class="sub">Tap a topic to focus. Each guide is written by Annie from real, on-the-ground experience — and updated yearly.</p>
+        </div>
+        <div class="count-pill">
+          <strong id="result-count">8</strong>
+          <span>of 8 shown</span>
+        </div>
+      </div>
+
+      <div class="filter-group">
+        <span class="filter-label">Topic</span>
+        <div class="filter-pills">
+          <button class="fpill active" data-filter="cat" data-v="all">All topics</button>
+          <button class="fpill" data-filter="cat" data-v="legal">Legal &amp; ownership</button>
+          <button class="fpill" data-filter="cat" data-v="school">Schooling</button>
+          <button class="fpill" data-filter="cat" data-v="cost">Cost of living</button>
+          <button class="fpill" data-filter="cat" data-v="visa">Visas</button>
+          <button class="fpill" data-filter="cat" data-v="health">Healthcare</button>
+          <button class="fpill" data-filter="cat" data-v="life">Lifestyle</button>
+        </div>
+      </div>
+
+      <div class="filter-foot">
+        <span class="helper">Updated yearly · written by Annie, not outsourced</span>
+        <button class="reset-btn" id="reset-btn" disabled>Reset filter <span aria-hidden="true">↻</span></button>
+      </div>
+    </div>
+
+    <div id="all-guides">
+
+      <!-- ===== FEATURED GUIDE ===== -->
+      <a href="guide-single.html" class="guide-featured" data-cat="legal">
+        <div class="photo" style="background-image: url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1200&q=80');">
+          <span class="start-badge">★ Start here</span>
+        </div>
+        <div class="body">
+          <span class="cat">Legal &amp; ownership</span>
+          <h3>Can foreigners own property in Thailand? <em>The honest answer.</em></h3>
+          <p class="desc">Freehold versus leasehold. Company structures and what they actually cost. The grey areas that agents tend to gloss over — and what's genuinely worth knowing before you sign anything in Thai. The single most important guide on this page.</p>
+          <div class="meta">
+            <span>8 min read · Updated 2024</span>
+            <span class="read-link">Read the guide <span class="arrow">→</span></span>
+          </div>
+        </div>
+      </a>
+
+      <!-- ===== GUIDE GRID ===== -->
+      <div class="guides-grid">
+
+        <a href="#" class="guide-card" data-cat="school">
+          <div class="photo tone-leaf" style="background-image: url('https://images.unsplash.com/photo-1497486751825-1233686d5d80?auto=format&fit=crop&w=900&q=80');"></div>
+          <div class="body">
+            <span class="cat cat-school">Schooling</span>
+            <h4>International schools in Phuket — which is right for your family?</h4>
+            <p class="desc">British, IB, American — what's available, what fees to expect, and how to choose between them without visiting all eight.</p>
+            <div class="foot">
+              <span>10 min · 2024</span>
+              <span class="read">Read <span class="arrow">→</span></span>
+            </div>
+          </div>
+        </a>
+
+        <a href="#" class="guide-card" data-cat="cost">
+          <div class="photo tone-ochre" style="background-image: url('https://images.unsplash.com/photo-1554224155-8d04421cd6e2?auto=format&fit=crop&w=900&q=80');"></div>
+          <div class="body">
+            <span class="cat cat-cost">Cost of living</span>
+            <h4>What does it actually cost to live in Phuket? A realistic breakdown.</h4>
+            <p class="desc">Real numbers for a family of four in 2024 — not the optimistic estimates you'll find on relocation blogs.</p>
+            <div class="foot">
+              <span>7 min · 2024</span>
+              <span class="read">Read <span class="arrow">→</span></span>
+            </div>
+          </div>
+        </a>
+
+        <a href="#" class="guide-card" data-cat="visa">
+          <div class="photo tone-clay" style="background-image: url('https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=900&q=80');"></div>
+          <div class="body">
+            <span class="cat cat-visa">Visas</span>
+            <h4>Thailand visa options — which one fits your situation?</h4>
+            <p class="desc">Elite, LTR, retirement, DTV — what each offers, who qualifies, and the common mistakes that delay applications.</p>
+            <div class="foot">
+              <span>9 min · 2024</span>
+              <span class="read">Read <span class="arrow">→</span></span>
+            </div>
+          </div>
+        </a>
+
+        <a href="#" class="guide-card" data-cat="health">
+          <div class="photo tone-brown" style="background-image: url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=900&q=80');"></div>
+          <div class="body">
+            <span class="cat cat-health">Healthcare</span>
+            <h4>Healthcare in Phuket — what expat families need to know.</h4>
+            <p class="desc">Which hospitals are worth using, how international insurance works, and how to navigate the Thai system day-to-day.</p>
+            <div class="foot">
+              <span>8 min · 2024</span>
+              <span class="read">Read <span class="arrow">→</span></span>
+            </div>
+          </div>
+        </a>
+
+        <a href="#" class="guide-card" data-cat="legal">
+          <div class="photo tone-olive" style="background-image: url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=900&q=80');"></div>
+          <div class="body">
+            <span class="cat cat-legal">Legal &amp; ownership</span>
+            <h4>Renting vs buying in Phuket — what makes sense for your situation?</h4>
+            <p class="desc">Most expats should rent first. Here's why — and the specific cases where buying earlier actually makes sense.</p>
+            <div class="foot">
+              <span>6 min · 2024</span>
+              <span class="read">Read <span class="arrow">→</span></span>
+            </div>
+          </div>
+        </a>
+
+        <a href="#" class="guide-card" data-cat="life">
+          <div class="photo tone-leaf" style="background-image: url('https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&w=900&q=80');"></div>
+          <div class="body">
+            <span class="cat cat-life">Lifestyle</span>
+            <h4>What daily life in Phuket actually looks like for expat families.</h4>
+            <p class="desc">School runs, grocery shopping, weekend rhythms, making friends — the unglamorous side that nobody puts on Instagram.</p>
+            <div class="foot">
+              <span>11 min · 2024</span>
+              <span class="read">Read <span class="arrow">→</span></span>
+            </div>
+          </div>
+        </a>
+
+        <a href="#" class="guide-card" data-cat="school">
+          <div class="photo tone-leaf" style="background-image: url('https://images.unsplash.com/photo-1571260899304-425eee4c7efc?auto=format&fit=crop&w=900&q=80');"></div>
+          <div class="body">
+            <span class="cat cat-school">Schooling</span>
+            <h4>Relocating with young children — what to plan first.</h4>
+            <p class="desc">Enrollment timelines, waiting lists, childcare options, and how to sequence the move without the kids unravelling.</p>
+            <div class="foot">
+              <span>7 min · 2024</span>
+              <span class="read">Read <span class="arrow">→</span></span>
+            </div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+
+    <div class="empty-state" id="empty-state">
+      <h3>Nothing yet on that topic.</h3>
+      <p>If you have a specific question that isn't covered here, ask Annie directly — she keeps a running list of what to write next.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- =========================================================
+     FAQ
+     ========================================================= -->
+<section class="section sand">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Quick answers</span>
+      <h2 class="h2">Questions Annie gets asked <em>every week.</em></h2>
+      <p class="lead">If your question isn't covered in the guides above, it's probably here. Tap a question to expand the answer.</p>
+    </div>
+
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span>Is Phuket safe for families with young children?</span>
+          <span class="faq-toggle" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">
+            Yes — Phuket is generally very safe for families. Road safety is the most relevant concern: most expat families with young kids drive cars rather than scooters, particularly for the school run. Day-to-day, neighbourhoods like Bangtao, Cherngtalay, and Kathu are quiet and low-risk. Petty theft exists, as anywhere, but violent crime against expats is genuinely rare.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span>Do I need to speak Thai to live comfortably in Phuket?</span>
+          <span class="faq-toggle" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">
+            No. English is widely spoken in the areas where most expats live — in shops, restaurants, hospitals, schools, and most of the services you'll use day-to-day. That said, learning even basic Thai changes how locals respond to you. It's not necessary, but a few months of casual lessons make life noticeably warmer.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span>How far in advance should I start planning the move?</span>
+          <span class="faq-toggle" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">
+            For families with school-age children, 6–12 months is ideal — school enrollment and waiting lists need real lead time, especially for popular British and IB schools. For couples without children, or retirees, 3–6 months is usually enough. The visa is rarely the bottleneck; it's usually schools or shipping.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span>Should I rent first before deciding where to buy?</span>
+          <span class="faq-toggle" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">
+            Almost always, yes. Renting for 6–12 months lets you experience an area through both seasons, work out your actual routine, and make a much more informed purchase decision. Buying off the back of a two-week scouting trip is the single most common regret we hear from expats five years in.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span>What's the best time of year to visit before relocating?</span>
+          <span class="faq-toggle" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">
+            November through April is peak season — dry, sunny, and the easiest time to experience Phuket at its best. If you're seriously considering the move, also try to come in August or September during the monsoon. Rainy-season Phuket is a different place, and it's a much fairer test of how you'll handle it long-term.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span>How does Phuket compare to Bali, Chiang Mai, or Bangkok for families?</span>
+          <span class="faq-toggle" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">
+            Phuket strikes a balance: better international school options than Bali, a more grounded family scene than central Bangkok, and a slower pace than Chiang Mai's expat hub. The trade-off is cost — Phuket is the most expensive of the four, especially in Bangtao and Cherngtalay. We'd happily talk you out of Phuket if your situation actually fits one of the others better.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     FOOTER CTA
+     ========================================================= -->
+<section class="cta-block">
+  <div class="wrap">
+    <div class="cta-card">
+      <div class="cta-card-content">
+        <span class="cta-card-eyebrow"><span class="dot"></span>Question not covered?</span>
+        <h2>
+          <span class="lead-line">Still have questions the guides don't answer?</span>
+          <em>Ask Annie directly.</em>
+        </h2>
+        <p class="sub">She's lived in Phuket since 2017 and would rather answer your question once than have it become a guide you need to scroll for. The smaller and more specific the question, the better.</p>
+        <div class="cta-row">
+          <a href="contact.html" class="btn btn-accent">Book a call <span class="arrow">↗</span></a>
+          <a href="areas.html" class="btn btn-ghost-on-dark">Explore areas first</a>
+        </div>
+      </div>
+      <div class="cta-card-image" style="background-image: url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1400&q=80');">
+        <div class="cta-card-stat">
+          <span class="stat-icon">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="2" y="2.5" width="10" height="9" rx="1.5" stroke="currentColor" stroke-width="1.4"/><path d="M4.5 6h5M4.5 8.5h3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+          </span>
+          <p class="stat-title">Written by Annie</p>
+          <p class="stat-sub">Updated yearly · not outsourced or AI-generated</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     FOOTER
+     ========================================================= -->
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="row">
+      <div>
+        <span class="wordmark"><span class="ph">Phuket</span>&nbsp;Living<span class="tag">This feels right</span></span>
+        <p>A relocation partner for expat families moving to Phuket. Clarity in every step. Confidence in every decision.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="areas.html">Areas</a></li>
+          <li><a href="properties.html">Properties</a></li>
+          <li><a href="resources.html">Resources</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About Annie</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="resources.html">Guides</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Reach out</h4>
+        <ul>
+          <li><a href="#">WhatsApp</a></li>
+          <li><a href="#">@phuketliving</a></li>
+          <li><a href="mailto:hello@phuketliving.com">hello@phuketliving.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="legal">
+      <span>© 2025 Phuket Living — Brand &amp; Digital v1.0</span>
+      <span>Made in Phuket</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Filter
+  const state = { cat: 'all' };
+  const featured = document.querySelector('.guide-featured');
+  const cards = document.querySelectorAll('.guides-grid .guide-card');
+  const countEl = document.getElementById('result-count');
+  const emptyEl = document.getElementById('empty-state');
+  const allGuides = document.getElementById('all-guides');
+  const resetBtn = document.getElementById('reset-btn');
+
+  function applyFilter() {
+    let visible = 0;
+    const matchFeatured = state.cat === 'all' || featured.dataset.cat === state.cat;
+    featured.style.display = matchFeatured ? '' : 'none';
+    if (matchFeatured) visible++;
+
+    cards.forEach(card => {
+      const match = state.cat === 'all' || card.dataset.cat === state.cat;
+      card.style.display = match ? '' : 'none';
+      if (match) visible++;
+    });
+
+    countEl.textContent = visible;
+    if (visible === 0) {
+      emptyEl.classList.add('show');
+      allGuides.style.display = 'none';
+    } else {
+      emptyEl.classList.remove('show');
+      allGuides.style.display = '';
+    }
+    resetBtn.disabled = state.cat === 'all';
+  }
+
+  document.querySelectorAll('.fpill').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const f = btn.dataset.filter;
+      const v = btn.dataset.v;
+      document.querySelectorAll(`.fpill[data-filter="${f}"]`).forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      state[f] = v;
+      applyFilter();
+    });
+  });
+
+  resetBtn.addEventListener('click', () => {
+    state.cat = 'all';
+    document.querySelectorAll('.fpill').forEach(b => b.classList.remove('active'));
+    document.querySelector('.fpill[data-v="all"]').classList.add('active');
+    applyFilter();
+  });
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-q').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const isOpen = item.classList.toggle('open');
+      btn.setAttribute('aria-expanded', isOpen);
+    });
+  });
+</script>
+
+</body>
+</html>
